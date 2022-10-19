@@ -3,13 +3,25 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {Provider} from 'react-redux';
+import AppReduxStore from './store/store';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import Loginpage from './pages/LoginPage'
+import { IsPrivate } from './components/style/IsPrivate';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={AppReduxStore}>
+      <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<IsPrivate><App/></IsPrivate>}/>
+        <Route path="/login" element={<Loginpage/>}/>
+      </Routes>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 
