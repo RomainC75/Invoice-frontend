@@ -16,8 +16,10 @@ root.render(
   <React.StrictMode>
     <Provider store={AppReduxStore}>
       <BrowserRouter>
+      
       <Routes>
         <Route path="/" element={<IsPrivate><App/></IsPrivate>}/>
+        
         <Route path="/login" element={<Loginpage/>}/>
       </Routes>
       </BrowserRouter>

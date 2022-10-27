@@ -65,6 +65,7 @@ const LoginPage = () => {
         label="Password"
         variant="outlined"
         name="password"
+        type="password"
         onChange={(el) => handleCredentials(el)}
         value= {credentialsState.password}
       />
