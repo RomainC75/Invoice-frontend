@@ -1,31 +1,20 @@
 import React, { useEffect } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import {useDispatch, useSelector} from 'react-redux'
-import { useAppSelector, useAppDispatch } from './store/hooks';
-import {store} from './store/store'
-import allProductSlice, { changeSecret, changeVal } from './slice/invoices.slice';
-import axios from 'axios';
-import {api_url} from './utils/environnment'
-import { fetchSingleInvoice } from './slice/invoices.slice';
+import {Route, Routes} from "react-router-dom"
+import { Navbar } from './components/Navbar';
+import { IsPrivate } from './components/style/IsPrivate';
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
 
-
-function App() {
-  const dispatch=useAppDispatch()
-
-  const invoice = useSelector((state:any)=>state.invoices.invoice)
-
-  useEffect(()=>{
-    // const token:string = useSelector((state:any)=>state.auth.token)
-    dispatch(fetchSingleInvoice("1"))
-  },[])
-
-  return (
-    <div className="App">
-      <p>YEA</p>
-      {invoice && <p>{invoice.items[1].name}</p>}
-    </div>
-  );
+function App():JSX.Element {
+      return(
+        <>
+          <Navbar/>
+          <Routes>
+            <Route path="/" element={<IsPrivate><HomePage/></IsPrivate>}/>
+            <Route path="/login" element={<LoginPage/>}/>
+          </Routes>
+        </>)
 }
 
 export default App;

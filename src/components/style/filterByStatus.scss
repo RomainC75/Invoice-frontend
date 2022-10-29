@@ -1,0 +1,26 @@
+.FilterByStatus{
+    position:relative;
+    & > .text {
+        cursor: pointer;
+        display:flex;
+        align-items: center;
+        gap:10px;
+        & > p{
+            font-weight:800;
+        }
+        & > .chevron{
+            width:9px;
+            transition: all 1s;
+        }
+    }
+    & > .dropDown{
+        visibility: hidden;
+        position:absolute;
+        padding:10px;
+        width:192px;
+        // visibility: hidden;
+        text-align:left;
+        border-radius:0.5em;
+        box-shadow: 0px 0px 10px rgb(197, 197, 197);
+    }
+}

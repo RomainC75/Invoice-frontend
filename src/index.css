@@ -16,3 +16,94 @@ code {
 .errorMessage{
   color:red;
 }
+
+/* background ! */
+
+.colorBg1{
+  background:#7C5DFA;
+}
+
+.colorBg2{
+  background:#9277FF;
+}
+
+.colorBg3{
+  background:#1E2139;
+}
+
+.colorBg4{
+  background: #252945;
+}
+.colorBg5{
+  background: #DFE3FA;
+}
+.colorBg6{
+  background: #888EB0;
+}
+.colorBg7{
+  background: #7E88C3;
+}
+.colorBg8{
+  background: #0C0E16;
+}
+.colorBg9{
+  background: #EC5757;
+}
+.colorBg10{
+  background: #9277FF;
+}
+.colorBg11{
+  background: #F8F8FB;
+}
+.colorBg12{
+  background: #141625;
+}
+/* Color */
+
+.color1{
+  color:#7C5DFA;
+}
+
+.color2{
+  color:#9277FF;
+}
+
+.color3{
+  color:#1E2139;
+}
+
+.color4{
+  color: #252945;
+}
+.color5{
+  color: #DFE3FA;
+}
+.color6{
+  color: #888EB0;
+}
+.color7{
+  color: #7E88C3;
+}
+.color8{
+  color: #0C0E16;
+}
+.color9{
+  color: #EC5757;
+}
+.color10{
+  color: #9277FF;
+}
+.color11{
+  color: #F8F8FB;
+}
+.color12{
+  color: #141625;
+}
+
+.visible{
+  visibility: visible!important;
+}
+
+.rotate{
+  transform:rotate(180deg);
+}

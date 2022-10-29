@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import { useDispatch, useSelector } from "react-redux";
-import { addToken } from "../slice/auth.slice";
+import { useAppSelector, useAppDispatch } from '../store/hooks'
+import { addToken, fetchToken } from "../slice/auth.slice";
 import { Button, TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
@@ -15,27 +16,38 @@ interface CredentialsInterface {
 }
 
 const LoginPage = () => {
-  const dispatch = useDispatch();
-  const authState = useSelector((state: any) => state.auth.token);
-  const [isError, setIsError] = useState<boolean>(false);
-  const [erroMessage, setErrorMessage] = useState<string>("");
+  const dispatch = useAppDispatch();
+  const {isAuthenticated, isError, erroMessage, loading} = useSelector((state: any) => state.auth);
+  
 
   const [credentialsState, setCredentialsState] =
     useState<CredentialsInterface>({ email: "", password: "" });
   const navigate = useNavigate();
 
+  // const login = () => {
+  //     axios.post(`${api_url}/login`, {
+  //       email: credentialsState.email,
+  //       password: credentialsState.password,
+  //     }).then(ans=>{
+  //       dispatch(addToken(ans.data.token));
+  //       navigate("/");
+  //     }).catch(err=>{
+  //         setIsError(true);
+  //         setErrorMessage(err.response.data.message);
+  //     })
+  // };
+
   const login = () => {
-      axios.post(`${api_url}/login`, {
-        email: credentialsState.email,
-        password: credentialsState.password,
-      }).then(ans=>{
-        dispatch(addToken(ans.data.token));
-        navigate("/");
-      }).catch(err=>{
-          setIsError(true);
-          setErrorMessage(err.response.data.message);
-      })
+      dispatch(fetchToken(credentialsState))
   };
+
+  useEffect(()=>{
+    if(isAuthenticated){
+      navigate("/")
+    }
+  },[isAuthenticated])
+
+
 
   const handleCredentials = (el:React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement>) => {
     const credentialsBuff = {

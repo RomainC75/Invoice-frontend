@@ -31,15 +31,17 @@ export const authenticateToken = createAsyncThunk(
     if(token){
       return axios.get(`${api_url}/verify`,{
         headers:{
-          'Authorization':`BEARER ${token}`
+          'Authorization':`Bearer ${token}`
         }
       }).then((ans) => {
         console.log("ANSWER :; ",ans.data)
         return true
       }).catch(()=>{
+        console.log("catch")
         return false
       })
     }else{
+      console.log("else")
       return new Promise((resolve,reject)=>reject(false))
     }
   }
@@ -49,9 +51,11 @@ const initialState: AuthSliceInterface = {
   token: null,
   user: null,
   isAuthenticated: false,
-  theme: false,
+  theme: true,
   loading: false,
-  error: null
+  error: null,
+  errorMessage: null, 
+  isLoaded: false
 };
 
 export const authSlice = createSlice({
@@ -67,6 +71,9 @@ export const authSlice = createSlice({
       state.token = null;
       state.isAuthenticated = false;
     },
+    toggleTheme : (state)=>{
+      state.theme=!state.theme
+    }
     
   },
   extraReducers: builder => {
@@ -75,11 +82,14 @@ export const authSlice = createSlice({
     })
     .addCase(fetchToken.fulfilled, (state, { payload }) =>{
       state.loading = false;
+      state.isAuthenticated=true
       state.token = payload.token;
       localStorage.setItem("authToken",payload.token)
+      state.isLoaded=true
     })
     .addCase(fetchToken.rejected, (state, { payload }) =>{
       state.loading = false;
+      state.isLoaded=true
       if(typeof payload==="string"){
         state.error = payload;
       }
@@ -89,15 +99,20 @@ export const authSlice = createSlice({
       state.loading = true;
     })
     .addCase(authenticateToken.fulfilled, (state, { payload }) =>{
-      state.isAuthenticated=true
+      console.log("authenticated :-), ", payload)
+      state.isAuthenticated=payload ? true : false
+      state.token=localStorage.getItem("authToken")
       state.loading=false
+      state.isLoaded=true
     })
     .addCase(authenticateToken.rejected, (state, { payload }) =>{
+      console.log("authenticateToken REJECTED")
       state.isAuthenticated = false;
       state.loading=false
+      state.isLoaded=true
     })
   }
 });
 
-export const { addToken, removeToken } = authSlice.actions;
+export const { addToken, removeToken, toggleTheme } = authSlice.actions;
 export default authSlice.reducer;

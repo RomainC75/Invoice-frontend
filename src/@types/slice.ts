@@ -7,7 +7,9 @@ export interface AuthSliceInterface{
     isAuthenticated:boolean,
     theme:boolean,
     loading: boolean,
-    error: string | null
+    error: string | null,
+    errorMessage: string | null, 
+    isLoaded: boolean
 }
 
 export interface InvoiceSliceInterface{
@@ -16,5 +18,6 @@ export interface InvoiceSliceInterface{
     val:number,
     invoice: null | InvoiceInterface
     loading: boolean,
-    error: string | null
+    error: string | null,
+    filterByStatus:Array<"draft"|"pending"|"paid">
 }

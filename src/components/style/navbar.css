@@ -1,1 +1,94 @@
-/* No CSS *//*# sourceMappingURL=navbar.css.map */
+.Navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: absolute;
+  background: #373B53;
+  width: 103px;
+  left: 0;
+  top: 0;
+  height: 100%;
+  border-top-right-radius: 2em;
+  border-bottom-right-radius: 2em;
+  z-index: 10;
+}
+
+.Navbar > .mainButton {
+  width: 100%;
+  height: 103px;
+  border-top-right-radius: 2em;
+  border-bottom-right-radius: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.Navbar > .mainButton > img {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.Navbar > .mainButton > .brightShadow {
+  height: 103px;
+  width: 103px;
+  position: absolute;
+  top: 50px;
+  border-top-left-radius: 2em;
+}
+
+.Navbar > .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.Navbar > .info > .shadowBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+  height: 103px;
+  width: 103px;
+}
+
+.Navbar > .info > .changeTheme > img {
+  cursor: pointer;
+}
+
+.Navbar > .info > .avatar {
+  border-top: 1px solid #979797;
+}
+
+.Navbar > .info > .avatar > img {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+}
+/*# sourceMappingURL=navbar.css.map */

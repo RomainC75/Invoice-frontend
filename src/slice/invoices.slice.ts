@@ -11,11 +11,26 @@ export const fetchSingleInvoice = createAsyncThunk(
   "invoice/fetchSingleInvoice",
   async (id:string) => {
     return axios.get(`${api_url}/invoice/${id}`).then((ans) => {
-      console.log("ANSWER :; ",ans.data)
       return ans.data;
     });
   }
 );
+
+export const fetchAllInvoices = createAsyncThunk(
+  "invoice/fetchAllInvoices",
+  async (token:string)=>{
+    console.log(" pre axios token : ",token)
+    return axios.get(`${api_url}/invoice/`,{
+      headers:{
+        'Authorization' : `Bearer ${token}`,
+      }
+    }).then((ans)=>{
+      
+      return ans.data
+    })
+  }
+)
+
 
 const initialState: InvoiceSliceInterface = {
   invoices: null,
@@ -23,7 +38,8 @@ const initialState: InvoiceSliceInterface = {
   val: 0,
   invoice: null,
   loading: false,
-  error: null
+  error: null,
+  filterByStatus:["draft","paid","pending"]
 };
 
 export const invoicesSlice = createSlice({
@@ -39,9 +55,32 @@ export const invoicesSlice = createSlice({
     getInvoice: (state, { payload }) => {
       state.invoice = payload;
     },
+    updateFilterByStatus:(state,{payload})=>{
+      if(payload.checked){
+        state.filterByStatus.push(payload.name)
+      }else{
+        state.filterByStatus=state.filterByStatus.filter(name=>name!==payload.name)
+      }
+    }
   },
   extraReducers: builder => {
-    builder.addCase(fetchSingleInvoice.pending, (state, { payload }) =>{
+    builder.addCase(fetchAllInvoices.pending, (state, { payload }) =>{
+      state.loading = true;
+    })
+
+    .addCase(fetchAllInvoices.fulfilled, (state, { payload }) =>{
+      state.loading = false;
+      state.invoices = payload;
+      console.log("payload => ", payload)
+    })
+    .addCase(fetchAllInvoices.rejected, (state, { payload }) =>{
+      state.loading = false;
+      if(typeof payload==="string"){
+        state.error = payload;
+      }
+    })
+
+    .addCase(fetchSingleInvoice.pending, (state, { payload }) =>{
       state.loading = true;
     })
 
@@ -58,5 +97,5 @@ export const invoicesSlice = createSlice({
   }
 });
 
-export const { changeSecret, changeVal, getInvoice } = invoicesSlice.actions;
+export const { changeSecret, changeVal, getInvoice, updateFilterByStatus } = invoicesSlice.actions;
 export default invoicesSlice.reducer;
