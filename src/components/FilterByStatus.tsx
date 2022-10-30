@@ -2,18 +2,14 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../store/hooks";
 import { GoChevronDown } from "react-icons/go";
-
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { updateFilterByStatus } from "../slice/invoices.slice";
 
-
 import { StoresInterface } from "../@types/store";
 
-import './style/filterByStatus.css'
+import './styles/filterByStatus.css'
 
-const FilterByStatus = () => {
+const FilterByStatus = ():JSX.Element => {
   const dispatch = useAppDispatch()
   const {filterByStatus} = useSelector((state:StoresInterface)=>state.invoices)
     const [visibility, setVisibility] = useState<boolean>(false);

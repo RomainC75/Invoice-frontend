@@ -5,10 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import AppReduxStore from "./store/store";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Loginpage from "./pages/LoginPage";
-import { IsPrivate } from "./components/style/IsPrivate";
-import { Navbar } from "./components/Navbar";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

@@ -1,18 +1,15 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { StoresInterface } from "../@types/store";
 import { InvoiceInterface} from  "../@types/invoice"
 import FilterByStatus from "./FilterByStatus";
-import {GoPlus} from "react-icons/go"
-import './style/homeHeader.css'
-import InvoiceList from "./InvoiceList";
+import Button from "./Button"
+
+import './styles/homeHeader.css'
 
 interface HomeHeaderInterface{
   invoices:InvoiceInterface[] | null
 }
 
-const HomeHeader = (props:HomeHeaderInterface) => {
-  const { invoices } = props
+const HomeHeader = ({invoices}:HomeHeaderInterface):JSX.Element => {
   const invoicesNb = invoices ? invoices.length : 0
 
   return (
@@ -23,14 +20,8 @@ const HomeHeader = (props:HomeHeaderInterface) => {
       </div>
       <div className="right">
         <FilterByStatus/>
-        <div className="newInvoice colorBg1">
-          <div className="plus">
-            <GoPlus className="color1"/>
-          </div>
-          <p>New Invoice</p>
-        </div>
-      </div>
-      <InvoiceList/>
+        <Button type={0} cross>New Invoice</Button>
+      </div> 
     </div>
   );
 };

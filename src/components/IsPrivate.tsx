@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
-import { useAppSelector, useAppDispatch } from '../../store/hooks'
+import { useAppSelector, useAppDispatch } from '../store/hooks'
 import {Navigate} from 'react-router-dom'
-import {authenticateToken} from '../../slice/auth.slice'
+import {authenticateToken} from '../slice/auth.slice'
 interface IsPrivateInterface{
     children:JSX.Element
 }

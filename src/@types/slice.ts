@@ -1,4 +1,4 @@
-import { UserInterface } from "./invoice";
+import { status, UserInterface } from "./invoice";
 import { InvoiceInterface } from "./invoice";
 
 export interface AuthSliceInterface{
@@ -19,5 +19,5 @@ export interface InvoiceSliceInterface{
     invoice: null | InvoiceInterface
     loading: boolean,
     error: string | null,
-    filterByStatus:Array<"draft"|"pending"|"paid">
+    filterByStatus:Array<status>
 }

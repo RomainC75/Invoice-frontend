@@ -1,0 +1,17 @@
+.HomeHeader{
+    display:flex;
+    justify-content: space-between;
+    width:100%;
+    margin:72px 0 65px 0;
+    margin-top:0 !important;
+    // padding-top:74px;
+    & > .left{
+        & > p{
+            
+        }
+    }
+
+    & > .right{
+        display:flex;
+    }
+}

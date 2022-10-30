@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,mBAAmB,CAAA;EACf,eAAe,EAAE,IAAI;EACrB,OAAO,EAAC,IAAI;EACZ,eAAe,EAAE,aAAa;EAC9B,OAAO,EAAE,SAAS;EAClB,aAAa,EAAC,GAAG;EACjB,aAAa,EAAC,IAAI;CAOrB",
+    "sources": [
+        "invoiceListElement.scss"
+    ],
+    "names": [],
+    "file": "invoiceListElement.css"
+}

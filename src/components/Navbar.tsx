@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import {  useAppDispatch } from "../store/hooks";
 import { authenticateToken } from "../slice/auth.slice";
 
-import "./style/navbar.css";
+import "./styles/navbar.css";
 
 import logo from "../assets/logo.svg";
 import moon from "../assets/icon-moon.svg"
@@ -15,7 +15,7 @@ import {toggleTheme} from "../slice/auth.slice"
 import { useSelector } from "react-redux";
 import { StoresInterface } from "../@types/store";
 
-export const Navbar = () => {
+export const Navbar = ():JSX.Element => {
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(authenticateToken());

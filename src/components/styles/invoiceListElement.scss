@@ -1,0 +1,14 @@
+.InvoiceListElement{
+    list-style-type: none;
+    display:flex;
+    justify-content: space-between;
+    padding: 29px 24px;
+    border-radius:2em;
+    margin-bottom:10px;
+    & > .id{
+
+    }
+    .chevron{
+        
+    }
+}

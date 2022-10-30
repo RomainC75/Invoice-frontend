@@ -4,11 +4,14 @@ import { useSelector } from 'react-redux'
 import { fetchAllInvoices } from '../slice/invoices.slice'
 import { StoresInterface } from '../@types/store'
 import HomeHeader from '../components/HomeHeader'
+import InvoiceList from '../components/InvoiceList'
+import './styles/homePage.css'
+
 
 const HomePage = () => {
     const dispatch=useAppDispatch()
 
-    const {invoice, invoices} = useSelector((state:StoresInterface)=>state.invoices)
+    const {invoices} = useSelector((state:StoresInterface)=>state.invoices)
     const {token, isLoaded} = useSelector((state:StoresInterface)=>state.auth)
   
     useEffect(()=>{
@@ -18,9 +21,9 @@ const HomePage = () => {
     },[isLoaded])
   
     return (
-      <div className="App">
+      <div className="HomePage">
         <HomeHeader invoices={invoices}/>
-        {invoice && <p>{invoice.items[1].name}</p>}
+        <InvoiceList/>
       </div>
     );
 }

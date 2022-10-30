@@ -1,0 +1,13 @@
+.InvoiceListElement {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 29px 24px;
+  border-radius: 2em;
+  margin-bottom: 10px;
+}
+/*# sourceMappingURL=invoiceListElement.css.map */

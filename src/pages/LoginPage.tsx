@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-
-import { useDispatch, useSelector } from "react-redux";
-import { useAppSelector, useAppDispatch } from '../store/hooks'
+import { useSelector } from "react-redux";
+import { useAppDispatch } from '../store/hooks'
 import { addToken, fetchToken } from "../slice/auth.slice";
 import { Button, TextField } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 import './styles/LoginPage.css'
-import { api_url } from "../utils/environnment";
 
 interface CredentialsInterface {
   email: string;
@@ -24,18 +21,7 @@ const LoginPage = () => {
     useState<CredentialsInterface>({ email: "", password: "" });
   const navigate = useNavigate();
 
-  // const login = () => {
-  //     axios.post(`${api_url}/login`, {
-  //       email: credentialsState.email,
-  //       password: credentialsState.password,
-  //     }).then(ans=>{
-  //       dispatch(addToken(ans.data.token));
-  //       navigate("/");
-  //     }).catch(err=>{
-  //         setIsError(true);
-  //         setErrorMessage(err.response.data.message);
-  //     })
-  // };
+
 
   const login = () => {
       dispatch(fetchToken(credentialsState))

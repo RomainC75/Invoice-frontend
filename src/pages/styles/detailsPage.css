@@ -1,0 +1,18 @@
+.DetailsPage {
+  max-width: 730px;
+  margin: 0 auto;
+}
+
+.DetailsPage > .navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+/*# sourceMappingURL=detailsPage.css.map */

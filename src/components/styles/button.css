@@ -1,18 +1,4 @@
-.HomeHeader {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.HomeHeader > .right {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.HomeHeader > .right > .newInvoice {
+.Button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -22,14 +8,17 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 18px;
+  height: 48px;
   font-weight: 900;
   padding: 15px;
   border-radius: 2.5em;
   color: white;
+  cursor: pointer;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
 }
 
-.HomeHeader > .right > .newInvoice > .plus {
+.Button > .plus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -40,10 +29,10 @@
       -ms-flex-align: center;
           align-items: center;
   background-color: white;
-  width: 22px;
-  height: 22px;
+  width: 32px;
+  height: 32px;
   margin-right: 10px;
   padding: 10px;
   border-radius: 100%;
 }
-/*# sourceMappingURL=homeHeader.css.map */
+/*# sourceMappingURL=button.css.map */

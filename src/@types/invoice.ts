@@ -6,7 +6,7 @@ export interface InvoiceInterface{
     description:string,
     clientName:string,
     clientEmail:string,
-    status:string,
+    status:status,
     items:ItemInterface[],
     clientAddress:AddressInterface,
     senderAddress:AddressInterface,
@@ -37,3 +37,5 @@ export interface AddressInterface{
     country:string,
     invoices?:InvoiceInterface[]
 }
+
+export type status = "draft"|"pending"|"paid"
