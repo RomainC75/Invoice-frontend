@@ -1,0 +1,34 @@
+.ItemsList .Details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.ItemsList .Details > .column > div:nth-child(1) {
+  margin-bottom: 10px;
+}
+
+.ItemsList .Details > .column.name {
+  width: 40%;
+  text-align: left;
+}
+
+.ItemsList .Details > .column.price, .ItemsList .Details > .column.subTotal {
+  text-align: right;
+}
+
+.ItemsList > .total {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=itemsList.css.map */

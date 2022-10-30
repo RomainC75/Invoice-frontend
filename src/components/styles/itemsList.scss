@@ -1,0 +1,26 @@
+.ItemsList{
+    .Details{
+        display:flex;
+        justify-content: space-between;
+        & > .column{
+            & > div:nth-child(1){
+                margin-bottom:10px;
+            }
+            &.name{
+                width:40%;
+                text-align: left;
+            }
+            &.price, &.subTotal{
+                text-align: right;
+            }
+        }   
+    }
+    & > .total{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    
+    }
+    
+    
+}

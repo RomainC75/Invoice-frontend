@@ -5,9 +5,11 @@ import { useParams } from 'react-router-dom';
 import { StoresInterface } from '../@types/store';
 import { fetchSingleInvoice } from '../slice/invoices.slice';
 import { GoArrowLeft, GoChevronLeft } from 'react-icons/go';
+import { Link } from 'react-router-dom';
 
 import './styles/detailsPage.css'
 import DetailsHeader from '../components/DetailsHeader';
+import DetailsContent from '../components/DetailsContent';
 
 const DetailsPage = () => {
     const dispatch = useAppDispatch()
@@ -23,11 +25,13 @@ const DetailsPage = () => {
       
   return (
     <div className="DetailsPage">
-        <div className="navigation">
+        <Link to='/' className="navigation">
             <GoChevronLeft className="chevron color1  "/>
             <p>Go back</p>
-        </div>
+        </Link>
         <DetailsHeader/>
+        <DetailsContent/>
+        
     </div>
   )
 }

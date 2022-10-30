@@ -1,0 +1,10 @@
+.DetailsHeader{
+    display:flex;
+    justify-content: space-between;
+    & > .left{
+        display:flex;
+    }
+    & > .right{
+        display:flex;
+    }
+}
