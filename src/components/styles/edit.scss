@@ -1,0 +1,20 @@
+.Edit{
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:719px;   
+    background: white;   
+    padding:56px  56px  32px 159px;
+    z-index:9;
+    border-bottom-right-radius: 2em;
+    border-top-right-radius: 2em;
+    transition: all 1s;
+    &.hide{
+        left:-700px;
+    }
+    & > .buttonsLine{
+        display:flex;
+        
+    }
+}

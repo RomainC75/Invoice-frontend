@@ -7,7 +7,8 @@ export interface textChildrenProps{
 }
 
 export interface ButtonInterface{
-    children: string
-    cross?: boolean
-    type: number
+    children: string;
+    cross?: boolean;
+    type?: number;
+    onClick?:React.MouseEventHandler<HTMLElement>
 }

@@ -1,0 +1,25 @@
+.Edit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 719px;
+  background: white;
+  padding: 56px  56px  32px 159px;
+  z-index: 9;
+  border-bottom-right-radius: 2em;
+  border-top-right-radius: 2em;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.Edit.hide {
+  left: -700px;
+}
+
+.Edit > .buttonsLine {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+/*# sourceMappingURL=edit.css.map */

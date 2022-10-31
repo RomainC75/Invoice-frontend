@@ -1,7 +1,7 @@
 import React from "react";
 import { InvoiceInterface} from  "../@types/invoice"
 import FilterByStatus from "./FilterByStatus";
-import Button from "./Button"
+import Button1 from "./Button1"
 
 import './styles/homeHeader.css'
 
@@ -20,7 +20,7 @@ const HomeHeader = ({invoices}:HomeHeaderInterface):JSX.Element => {
       </div>
       <div className="right">
         <FilterByStatus/>
-        <Button type={0} cross>New Invoice</Button>
+        <Button1 type={0} cross>New Invoice</Button1>
       </div> 
     </div>
   );
