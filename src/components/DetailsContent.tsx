@@ -21,7 +21,7 @@ const DetailsContent = () => {
       <div className={ theme ? "DetailsContent colorBgWhite" : "DetailsContent colorBg3" }>
           <div className="top">
               <div className="idDescription">
-                <h3 className="id"><span className="sharp">#</span>{invoice.id}</h3>
+                <h3 className="id color6">#<span className={theme ? "color8" : "white"}>{invoice.id}</span></h3>
                 <div className="description p1">{invoice.description}</div>
               </div>
               <div className={theme ? "senderAddress p2 color7" : "senderAddress p2 color5"}>
@@ -36,17 +36,22 @@ const DetailsContent = () => {
               <div className="dates">
                 <div className="invoiceDate simpleDisplay">
                   <DetailTitle>Invoice Date</DetailTitle>
-                  <P05Content>{invoice.createdAt}</P05Content>
                   <P05Content>{displayDate(invoice.createdAt)}</P05Content>
                 </div>
                 <div className="payementDate simpleDisplay">
                   <DetailTitle>Payment Due</DetailTitle>
-                  <P05Content>{invoice.paymentDue}</P05Content>
+                  <P05Content>{displayDate(invoice.paymentDue)}</P05Content>
                 </div>
               </div>
               <div className="bill">
                 <DetailTitle>Bill To</DetailTitle>
                 <P05Content>{invoice.clientName}</P05Content>
+                <div className={theme ? "clientAddress p2 color7" : "clientAddress p2 color5"}>
+                  <p className="p2">{invoice.clientAddress.street}</p>
+                  <p className="p2">{invoice.clientAddress.city}</p>
+                  <p className="p2">{invoice.clientAddress.postCode}</p>
+                  <p className="p2">{invoice.clientAddress.country}</p>
+                </div>
               </div>
             </div>
             <div className="sent simpleDisplay">

@@ -1,5 +1,6 @@
 .DetailsContent{
     padding:32px;
+    border-radius:1em;
     & > .top{
         display:flex;
         justify-content: space-between;
@@ -23,6 +24,11 @@
             display:flex;
             justify-content: space-between;
             flex-grow:1;
+            & > .bill{
+                & > p{
+                    margin-bottom:8px;
+                }
+            }
         }
         & > .sent{
             flex-grow: 1;

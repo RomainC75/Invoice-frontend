@@ -1,5 +1,6 @@
 .DetailsContent {
   padding: 32px;
+  border-radius: 1em;
 }
 
 .DetailsContent > .top {
@@ -40,6 +41,10 @@
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+}
+
+.DetailsContent > .middle > .left > .bill > p {
+  margin-bottom: 8px;
 }
 
 .DetailsContent > .middle > .sent {

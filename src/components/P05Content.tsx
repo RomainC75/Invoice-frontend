@@ -8,6 +8,7 @@ interface P05ContentInterface {
 
 const P05Content = ({children}:P05ContentInterface) => {
     const {theme} = useSelector((state:StoresInterface)=>state.auth)
+    
   return (
     <p className={theme ? "p05 black" : "p05 white"}>{children}</p>
   )

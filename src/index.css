@@ -7,8 +7,9 @@
   height:100%;
 }
 
-a{
+a, a:active, a:visited, a:link, a:hover{
   text-decoration: none;
+  color:none;
 }
 
 body {
@@ -123,6 +124,14 @@ h4{
 }
 .colorBg12{
   background: #141625;
+}
+
+.colorBg13{
+  background: #F9FAFE;
+}
+
+.colorBg14{
+  background: #373B53;
 }
 
 .colorBgWhite{

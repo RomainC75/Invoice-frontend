@@ -1,26 +1,31 @@
-.ItemsList .Details {
+.ItemsList > .details {
+  padding: 32px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
 }
 
-.ItemsList .Details > .column > div:nth-child(1) {
-  margin-bottom: 10px;
+.ItemsList > .details > .column > div {
+  margin-bottom: 32px;
 }
 
-.ItemsList .Details > .column.name {
+.ItemsList > .details > .column.name {
   width: 40%;
   text-align: left;
 }
 
-.ItemsList .Details > .column.price, .ItemsList .Details > .column.subTotal {
+.ItemsList > .details > .column.price, .ItemsList > .details > .column.subTotal {
   text-align: right;
 }
 
 .ItemsList > .total {
+  height: 80px;
+  padding: 32px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -30,5 +35,15 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  color: white;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+}
+
+.ItemsList > .total > .totalNumber {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
 }
 /*# sourceMappingURL=itemsList.css.map */
