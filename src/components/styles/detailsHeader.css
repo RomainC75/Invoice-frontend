@@ -5,12 +5,20 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  border-radius: 1em;
+  padding: 24px 32px;
+  margin-bottom: 24px;
+  margin-top: 32px;
 }
 
 .DetailsHeader > .left {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.DetailsHeader > .left > p:nth-child(1) {
+  margin-right: 16px;
 }
 
 .DetailsHeader > .right {

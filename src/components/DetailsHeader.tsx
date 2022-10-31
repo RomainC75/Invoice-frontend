@@ -7,11 +7,10 @@ import Button from './Button'
 import './styles/detailsHeader.css'
 
 const DetailsHeader = () => {
-    const {invoice} = useSelector((state:StoresInterface)=>state.invoices)
-    const {theme} = useSelector((state:StoresInterface)=>state.auth)
-    
+    const {invoice} = useSelector( (state:StoresInterface)=>state.invoices )
+    const {theme} = useSelector( (state:StoresInterface)=>state.auth )
   return (
-    <div className="DetailsHeader">
+    <div className={ theme ? "DetailsHeader colorBgWhite" : "DetailsHeader colorBg3" }>
         <div className="left">
             <p>Status</p>
             { invoice && invoice.status && <StatusInfo status={invoice.status}/>}

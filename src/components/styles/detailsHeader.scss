@@ -1,8 +1,15 @@
 .DetailsHeader{
     display:flex;
     justify-content: space-between;
+    border-radius:1em;
+    padding:24px 32px;
+    margin-bottom: 24px;
+    margin-top:32px;
     & > .left{
         display:flex;
+        & > p:nth-child(1){
+            margin-right:16px;
+        }
     }
     & > .right{
         display:flex;

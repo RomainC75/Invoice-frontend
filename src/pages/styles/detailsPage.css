@@ -15,4 +15,8 @@
           align-items: center;
   gap: 10px;
 }
+
+.DetailsPage > .navigation > p {
+  margin: 0;
+}
 /*# sourceMappingURL=detailsPage.css.map */

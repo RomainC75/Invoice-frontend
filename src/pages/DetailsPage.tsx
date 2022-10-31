@@ -31,7 +31,6 @@ const DetailsPage = () => {
         </Link>
         <DetailsHeader/>
         <DetailsContent/>
-        
     </div>
   )
 }

@@ -1,12 +1,14 @@
 .DetailsPage{
     max-width:730px;
     margin:0 auto;
-    
     & > .navigation{
         display:flex;
         justify-content:left;
         align-items:center;
         gap:10px;
+        & > p{
+            margin:0;
+        }
         
     }
 }
