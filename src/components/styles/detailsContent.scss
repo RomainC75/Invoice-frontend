@@ -1,0 +1,34 @@
+.DetailsContent{
+    padding:32px;
+    & > .top{
+        display:flex;
+        justify-content: space-between;
+        & > .idDescription{
+            & > .id{
+                margin:8px;
+            }
+        }
+        & > .senderAddress{
+            & p{
+                text-align:right;
+                margin:5px;
+            }
+        }
+    }
+    & > .middle{
+        display: flex;
+        justify-content: space-between;
+        text-align: left;
+        & > .left{
+            display:flex;
+            justify-content: space-between;
+            flex-grow:1;
+        }
+        & > .sent{
+            flex-grow: 1;
+            display:flex;
+            justify-content: center;
+            
+        }
+    }
+}

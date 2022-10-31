@@ -60,6 +60,13 @@ h4{
 
 /* body */
 
+.p05{
+  font-weight:bold;
+  font-size:15px;
+  line-height: 20px;
+  letter-spacing: -0.31px; 
+}
+
 .p1{
   font-weight:medium;
   font-size:12px;
@@ -73,6 +80,8 @@ h4{
   line-height: 18px;
   letter-spacing: -0.23px; 
 }
+
+
 
 /* background ! */
 
