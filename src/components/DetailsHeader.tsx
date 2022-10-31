@@ -12,7 +12,7 @@ const DetailsHeader = () => {
   return (
     <div className={ theme ? "DetailsHeader colorBgWhite" : "DetailsHeader colorBg3" }>
         <div className="left">
-            <p>Status</p>
+            <p className={theme ? "color7" : "color5"}>Status</p>
             { invoice && invoice.status && <StatusInfo status={invoice.status}/>}
         </div>
         <div className="right">

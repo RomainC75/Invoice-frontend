@@ -22,7 +22,7 @@ const DetailsContent = () => {
           <div className="top">
               <div className="idDescription">
                 <h3 className="id color6">#<span className={theme ? "color8" : "white"}>{invoice.id}</span></h3>
-                <div className="description p1">{invoice.description}</div>
+                <div className={theme ? "description p1 color7" : "description p1 color5"}>{invoice.description}</div>
               </div>
               <div className={theme ? "senderAddress p2 color7" : "senderAddress p2 color5"}>
                 <p>{invoice.senderAddress.street}</p>
