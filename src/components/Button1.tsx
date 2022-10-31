@@ -27,7 +27,6 @@ const buttonTypes: ButtonValuesInterface[]=[
 ]
 
 const Button1 = ({children, type=0, cross, onClick}:ButtonInterface):JSX.Element => {
-  
     const {theme} = useSelector((state:StoresInterface)=>state.auth)
   const def = `Button ${buttonTypes[type]["background"][theme ? 0 : 1]} ${buttonTypes[type]["color"]}`
   const [classState, setClassState] = useState<string>(def);
