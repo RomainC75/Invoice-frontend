@@ -1,6 +1,7 @@
 import React from 'react'
 import {useSelector} from "react-redux"
 import { StoresInterface } from '../@types/store'
+import { displayDate } from '../utils/displayDate'
 import DetailTitle from './DetailTitle'
 import ItemsList from './ItemsList'
 import P05Content from './P05Content'
@@ -36,6 +37,7 @@ const DetailsContent = () => {
                 <div className="invoiceDate simpleDisplay">
                   <DetailTitle>Invoice Date</DetailTitle>
                   <P05Content>{invoice.createdAt}</P05Content>
+                  <P05Content>{displayDate(invoice.createdAt)}</P05Content>
                 </div>
                 <div className="payementDate simpleDisplay">
                   <DetailTitle>Payment Due</DetailTitle>
