@@ -10,7 +10,6 @@ import { api_url } from "../utils/environnment";
 export const fetchSingleInvoice = createAsyncThunk(
   "invoice/fetchSingleInvoice",
   async ({id, token}:{id:string, token:string}) => {
-
     return axios.get(`${api_url}/invoice/${id}`,{
       headers:{
         'Authorization' : `Bearer ${token}`,
@@ -35,7 +34,6 @@ export const fetchAllInvoices = createAsyncThunk(
     })
   }
 )
-
 
 const initialState: InvoiceSliceInterface = {
   invoices: null,
