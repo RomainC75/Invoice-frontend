@@ -3,6 +3,14 @@ import { useSelector } from "react-redux";
 import { InvoiceInterface } from "../@types/invoice";
 import { StoresInterface } from "../@types/store";
 import Button1 from "./Button1";
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import dayjs, { Dayjs } from 'dayjs';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
+import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
+import TextField from '@mui/material/TextField';
 
 import "./styles/edit.css";
 import TextInput from "./TextInput";
@@ -16,9 +24,27 @@ const Edit = ({ display, toggleDisplay }: EditInterface) => {
   const { invoice } = useSelector((state: StoresInterface) => state.invoices);
   const [invoiceState, setInvoiceState] = useState<InvoiceInterface | null>(null);
 
+  const [value, setValue] = React.useState<Dayjs | null>(
+    dayjs('2014-08-18T21:11:54'),
+  );
+  const handleDateChange = (newValue: Dayjs | null) => {
+    setValue(newValue);
+  };
+
   useEffect(()=>{
     setInvoiceState(invoice)
+    setValue(dayjs(invoice?.paymentDue+"T12:00:00"))
   },[invoice])
+
+  useEffect(()=>{
+    const newDate:string|undefined = value?.format("YYYY-MM-DD")
+    if(invoiceState && newDate){
+      setInvoiceState({
+        ...invoiceState,
+        paymentDue:newDate
+      })
+    }
+  },[value])
 
   if (!invoice) {
     return <div></div>;
@@ -26,12 +52,13 @@ const Edit = ({ display, toggleDisplay }: EditInterface) => {
 
   const handleChange = (
     el: React.ChangeEvent<HTMLInputElement>,
-    category?: string
+    category?: keyof InvoiceInterface
   ) => {
-    if (category && invoiceState && category in invoiceState) {
+    if (invoiceState && category && category in invoiceState && invoiceState[category] instanceof Object) {
       setInvoiceState({
         ...invoiceState,
         [category]: {
+          ...invoiceState[category] as object ,
           [el.target.name]: el.target.value
         },
       });
@@ -49,7 +76,7 @@ const Edit = ({ display, toggleDisplay }: EditInterface) => {
     <div className={display ? "Edit" : "Edit hide"}>
       <p>EDIT #{invoice.id}</p>
       <div className="bill">
-        <div className="sectionTitle">Bill From</div>
+        <div className="sectionTitle color1">Bill From</div>
         <TextInput
           value={invoiceState?.senderAddress.street}
           onChange={(el) => handleChange(el, "senderAddress")}
@@ -58,15 +85,33 @@ const Edit = ({ display, toggleDisplay }: EditInterface) => {
           Street Address
         </TextInput>
         <div className="flex">
-          <TextInput>City</TextInput>
-          <TextInput>Post Code</TextInput>
-          <TextInput>Country</TextInput>
+          <TextInput 
+            value={invoiceState?.senderAddress.city}
+            onChange={(el)=> handleChange(el, "senderAddress")}
+            name="city"
+          >
+            City
+          </TextInput>
+          <TextInput 
+            value={invoiceState?.senderAddress.postCode}
+            onChange={(el)=> handleChange(el, "senderAddress")}
+            name="postCode"
+          >
+            Post Code
+          </TextInput>
+          <TextInput 
+            value={invoiceState?.senderAddress.country}
+            onChange={(el)=> handleChange(el, "senderAddress")}
+            name="country"
+          >
+            Country
+          </TextInput>
         </div>
         
       </div>
 
       <div className="bill">
-        <div className="sectionTitle">Bill To</div>
+        <div className="sectionTitle color1">Bill To</div>
         <TextInput
           value={invoiceState?.clientName}
           onChange={(el) => handleChange(el)}
@@ -74,6 +119,52 @@ const Edit = ({ display, toggleDisplay }: EditInterface) => {
         >
           Street Address
         </TextInput>
+        <TextInput
+          value={invoiceState?.clientEmail}
+          onChange={(el) => handleChange(el)}
+          name="clientEmail"
+        >
+          Street Email
+        </TextInput>
+
+        <div className="flex">
+          <TextInput 
+            value={invoiceState?.clientAddress.city}
+            onChange={(el)=> handleChange(el, "clientAddress")}
+            name="city"
+          >
+            City
+          </TextInput>
+          <TextInput 
+            value={invoiceState?.clientAddress.postCode}
+            onChange={(el)=> handleChange(el, "clientAddress")}
+            name="postCode"
+          >
+            Post Code
+          </TextInput>
+          <TextInput 
+            value={invoiceState?.clientAddress.country}
+            onChange={(el)=> handleChange(el, "clientAddress")}
+            name="country"
+          >
+            Country
+          </TextInput>
+        </div>
+        <div className="">
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DesktopDatePicker
+              label="Date desktop"
+              inputFormat="DD MM YYYY"
+              value={value}
+              onChange={handleDateChange}
+              renderInput={(params) => <TextField {...params} />}
+              className=""
+            />
+          </LocalizationProvider>
+          
+
+
+        </div>
         
         
       </div>

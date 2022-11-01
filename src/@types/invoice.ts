@@ -1,8 +1,12 @@
+export type status = "draft"|"pending"|"paid"
+export type paymentTerms = 1|7|14|30
+
 export interface InvoiceInterface{
     id:number,
     user_id:number,
     createdAt:string,
     paymentDue:string,
+    paymentTerms:paymentTerms,
     description:string,
     clientName:string,
     clientEmail:string,
@@ -38,4 +42,3 @@ export interface AddressInterface{
     invoices?:InvoiceInterface[]
 }
 
-export type status = "draft"|"pending"|"paid"

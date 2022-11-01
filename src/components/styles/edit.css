@@ -13,6 +13,10 @@
   transition: all 1s;
 }
 
+.Edit > .bill {
+  margin-bottom: 48px;
+}
+
 .Edit.hide {
   left: -700px;
 }
@@ -31,5 +35,10 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   gap: 24px;
+}
+
+.Edit .sectionTitle {
+  margin-bottom: 24px;
+  text-align: left;
 }
 /*# sourceMappingURL=edit.css.map */
