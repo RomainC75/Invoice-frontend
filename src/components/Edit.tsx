@@ -55,6 +55,7 @@ const Edit = ({ display, toggleDisplay }: EditInterface) => {
     el: React.ChangeEvent<HTMLInputElement>,
     category?: keyof InvoiceInterface
   ) => {
+    console.log(el.target.name,el.target.value)
     if (
       invoiceState &&
       category &&

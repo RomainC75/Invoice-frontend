@@ -1,9 +1,39 @@
 .EditItems{
     display:flex;
-    flex-wrap: nowrap;
-    & > .name{
-        width:40%;
+    flex-direction: column;
+    & > .list{
         display:flex;
-        flex-direction:column;
+        flex-wrap: nowrap;
+        & > .col{
+            & > .name{
+                display:flex;
+                flex-direction:column;
+                justify-content: space-between;
+                
+            }
+            &.trash{
+                align-items:stretch;
+                
+                & > .name{
+                    
+                    padding: 0;
+                    & li{
+                        list-style-type: none;
+                    }
+                }
+            }
+        }
+        & > .name{
+            width:40%;
+            & > .trashItem{
+                height:50px;
+            }
+            
+        }
+    }
+    .addButton{
+        padding:10px;
+        border-radius: 2em;
+        
     }
 }

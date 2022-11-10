@@ -11,7 +11,6 @@ interface ItemsListInterface{
 
 const ItemsList = ({items}:ItemsListInterface):JSX.Element => {
     const {theme} = useSelector((state:StoresInterface)=>state.auth)
-    
 
   return (
     <div className="ItemsList">

@@ -2,12 +2,21 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.EditItems > .list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
 }
 
-.EditItems > .name {
-  width: 40%;
+.EditItems > .list > .col > .name {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -15,5 +24,35 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.EditItems > .list > .col.trash {
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+.EditItems > .list > .col.trash > .name {
+  padding: 0;
+}
+
+.EditItems > .list > .col.trash > .name li {
+  list-style-type: none;
+}
+
+.EditItems > .list > .name {
+  width: 40%;
+}
+
+.EditItems > .list > .name > .trashItem {
+  height: 50px;
+}
+
+.EditItems .addButton {
+  padding: 10px;
+  border-radius: 2em;
 }
 /*# sourceMappingURL=editItems.css.map */

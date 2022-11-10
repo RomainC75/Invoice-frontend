@@ -11,13 +11,6 @@ interface SelectCompInterface{
 }
 
 const SelectComp = ({onChange, value}:SelectCompInterface) => {
-  const [age, setAge] = React.useState("");
-
-  const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value as string);
-  };
-
-  
   return <div className="SelectComp">
     <Box sx={{ minWidth: 120 }}>
     <FormControl fullWidth>

@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { InvoiceInterface, ItemInterface } from "../@types/invoice";
 import TextInput from "./TextInput"
-
+import { TiPlus } from "react-icons/ti"
+import { FaTrash } from "react-icons/fa"
 import "./styles/editItems.css"
 
 interface EditItemsInterface {
@@ -40,36 +41,56 @@ const EditItems = ({ invoiceState, setInvoiceState }: EditItemsInterface) => {
     })
   }
 
+  const handleDeleteItem = (indexToDelete:number) =>{
+    const itemBuff = invoiceState.items.filter( (item,i)=>i!=indexToDelete )
+    console.log(itemBuff)
+    setInvoiceState({
+      ...invoiceState,
+      items:itemBuff
+    })
+  }
+
   return (
     <div className="EditItems">
+      <h3>Items List</h3>
+      <div className="list">
+        <div className="col name">
+          <div className="title">Item Name</div>
+          <ul className="name">
+            {invoiceState.items.map((item, i) => (
+              <TextInput key={`name-${item.id}`} value={item.name} onChange={(el)=>handleItemChanges(el,i,"name")}></TextInput>
+            ))}
+          </ul>
+        </div>
 
-      <div className="col name">
-        <div className="title">Item Name</div>
-        <ul className="name">
-          {invoiceState.items.map((item, i) => (
-            <TextInput key={`name-${item.id}`} value={item.name} onChange={(el)=>handleItemChanges(el,i,"name")}></TextInput>
-          ))}
-        </ul>
+        <div className="col quantity">
+          <div className="title">Qty.</div>
+          <ul className="name">
+            {invoiceState.items.map((item, i) => (
+              <TextInput key={`quantity-${item.id}`} value={item.quantity.toString()} onChange={(el)=>handleItemChanges(el,i,"quantity")}></TextInput>
+            ))}
+          </ul>
+        </div>
+
+        <div className="col price">
+          <div className="title">Price</div>
+          <ul className="name">
+            {invoiceState.items.map((item, i) => (
+              <TextInput key={`price-${item.id}`} value={item.price.toString()} onChange={(el)=>handleItemChanges(el,i,"price")}></TextInput>
+            ))}
+          </ul>
+        </div>
+
+        <div className="col trash">
+          <div className="title">Price</div>
+          <ul className="name">
+            {invoiceState.items.map((item, i) => (
+              <li><FaTrash className="trashItem" onClick={()=>handleDeleteItem(i)}/></li>
+            ))}
+          </ul>
+        </div>
       </div>
-
-      <div className="col quantity">
-        <div className="title">Qty.</div>
-        <ul className="name">
-          {invoiceState.items.map((item, i) => (
-            <TextInput key={`quantity-${item.id}`} value={item.quantity.toString()} onChange={(el)=>handleItemChanges(el,i,"quantity")}></TextInput>
-          ))}
-        </ul>
-      </div>
-
-      <div className="col price">
-        <div className="title">Price</div>
-        <ul className="name">
-          {invoiceState.items.map((item, i) => (
-            <TextInput key={`price-${item.id}`} value={item.price.toString()} onChange={(el)=>handleItemChanges(el,i,"price")}></TextInput>
-          ))}
-        </ul>
-      </div>
-
+      <div className="addButton colorBg13 color7"><TiPlus/>Add New Item</div>
     </div>
   );
 };
