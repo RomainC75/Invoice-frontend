@@ -17,7 +17,7 @@ export interface InvoiceInterface{
 }
 
 export interface ItemInterface{
-    id:number,
+    id?:number,
     name:string,
     price:number,
     quantity:number,

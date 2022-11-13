@@ -50,6 +50,21 @@ const EditItems = ({ invoiceState, setInvoiceState }: EditItemsInterface) => {
     })
   }
 
+  const addItem = ()=>{
+    setInvoiceState({
+      ...invoiceState,
+      items:[
+        ...invoiceState.items,
+        {
+          name:"",
+          price:0,
+          quantity:0,
+          invoice_id:invoiceState.id
+        }
+      ]
+    })
+  }
+
   return (
     <div className="EditItems">
       <h3>Items List</h3>
@@ -90,7 +105,7 @@ const EditItems = ({ invoiceState, setInvoiceState }: EditItemsInterface) => {
           </ul>
         </div>
       </div>
-      <div className="addButton colorBg13 color7"><TiPlus/>Add New Item</div>
+      <div className="addButton colorBg13 color7" onClick={()=>addItem()}><TiPlus/>Add New Item</div>
     </div>
   );
 };
