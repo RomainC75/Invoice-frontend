@@ -58,8 +58,7 @@ const EditItems = ({ invoiceState, setInvoiceState }: EditItemsInterface) => {
         {
           name:"",
           price:0,
-          quantity:0,
-          invoice_id:invoiceState.id
+          quantity:0
         }
       ]
     })

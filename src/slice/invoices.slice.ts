@@ -6,6 +6,7 @@ import { InvoiceSliceInterface } from "../@types/slice";
 import axios from "axios";
 
 import { api_url } from "../utils/environnment";
+import { InvoiceInterface, InvoiceToUpdateInterface } from "../@types/invoice";
 
 export const fetchSingleInvoice = createAsyncThunk(
   "invoice/fetchSingleInvoice",
@@ -32,6 +33,46 @@ export const fetchAllInvoices = createAsyncThunk(
       
       return ans.data
     })
+  }
+)
+
+export const updatePost = createAsyncThunk(
+  "invoice/updatePost",
+  async ({newPost, token}: {newPost:InvoiceInterface, token:string})=>{
+    const buff:InvoiceToUpdateInterface = newPost
+    const id = buff['id']
+    delete buff['id']
+    delete buff['user_id']
+    delete buff['createdAt']
+    console.log("inside", buff)
+    buff.clientAddress={
+      name:buff.clientAddress.name,
+      street:buff.clientAddress.street,
+      city:buff.clientAddress.city,
+      postCode:buff.clientAddress.postCode,
+      country: buff.clientAddress.country,
+      invoices: buff.clientAddress.invoices
+    }
+    buff.senderAddress={
+      name:buff.senderAddress.name,
+      street:buff.senderAddress.street,
+      city:buff.senderAddress.city,
+      postCode:buff.senderAddress.postCode,
+      country: buff.senderAddress.country,
+      invoices: buff.senderAddress.invoices
+    }
+    console.log("buff : ",buff)
+    return axios.put(`${api_url}/invoice/${id}`,
+      buff,
+      {
+        headers:{
+          'Authorization': `Bearer ${token}`
+        }
+      }).then((ans)=>{
+        console.log(" data from the update return : ", ans.data)
+        return ans.data
+      }
+    )
   }
 )
 
@@ -92,6 +133,21 @@ export const invoicesSlice = createSlice({
       state.invoice = payload;
     })
     .addCase(fetchSingleInvoice.rejected, (state, { payload }) =>{
+      state.loading = false;
+      if(typeof payload==="string"){
+        state.error = payload;
+      }
+    })
+
+    .addCase(updatePost.pending, (state, { payload }) =>{
+      state.loading = true;
+    })
+
+    .addCase(updatePost.fulfilled, (state, { payload }) =>{
+      state.loading = false;
+      state.invoice = payload;
+    })
+    .addCase(updatePost.rejected, (state, { payload }) =>{
       state.loading = false;
       if(typeof payload==="string"){
         state.error = payload;

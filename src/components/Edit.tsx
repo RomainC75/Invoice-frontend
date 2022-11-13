@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { InvoiceInterface } from "../@types/invoice";
 import { StoresInterface } from "../@types/store";
 import Button1 from "./Button1";
@@ -12,11 +12,12 @@ import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
 import TextField from "@mui/material/TextField";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-
+import { fetchAllInvoices, updatePost } from "../slice/invoices.slice";
 import "./styles/edit.css";
 import TextInput from "./TextInput";
 import SelectComp from "./SelectComp";
 import EditItems from "./EditItems";
+import {useAppDispatch} from '../store/hooks'
 
 interface EditInterface {
   display: boolean;
@@ -25,6 +26,8 @@ interface EditInterface {
 
 const Edit = ({ display, toggleDisplay }: EditInterface) => {
   const { invoice } = useSelector((state: StoresInterface) => state.invoices);
+  const { token } = useSelector((state: StoresInterface) => state.auth);
+  const dispatch = useAppDispatch()
   const [invoiceState, setInvoiceState] = useState<InvoiceInterface | null>(
     null
   );
@@ -35,6 +38,15 @@ const Edit = ({ display, toggleDisplay }: EditInterface) => {
   const handleDateChange = (newValue: Dayjs | null) => {
     setValue(newValue);
   };
+
+  const handleSaveChanges = () =>{
+    if(!invoiceState || !token){
+      return
+    }
+    dispatch(updatePost({
+      newPost: invoiceState, 
+      token}))
+  }
 
   useEffect(() => {
     setInvoiceState(invoice);
@@ -195,7 +207,7 @@ const Edit = ({ display, toggleDisplay }: EditInterface) => {
 
         <div className="buttonsLine">
           <Button1 onClick={() => toggleDisplay()}>Cancel</Button1>
-          <Button1>Save Changes</Button1>
+          <Button1 onClick={()=> handleSaveChanges()}>Save Changes</Button1>
         </div>
       </div>
     );

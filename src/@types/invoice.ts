@@ -16,6 +16,22 @@ export interface InvoiceInterface{
     senderAddress:AddressInterface,
 }
 
+export interface InvoiceToUpdateInterface{
+    id?:number,
+    user_id?:number,
+    createdAt?:string,
+    paymentDue:string,
+    paymentTerms:paymentTerms,
+    description:string,
+    clientName:string,
+    clientEmail:string,
+    status:status,
+    items:ItemInterface[],
+    clientAddress:AddressInterface,
+    senderAddress:AddressInterface,
+}
+
+
 export interface ItemInterface{
     id?:number,
     name:string,
@@ -33,7 +49,7 @@ export interface UserInterface{
 }
 
 export interface AddressInterface{
-    id:number,
+    id?:number,
     name:string,
     street:string,
     city:string,
