@@ -36,6 +36,19 @@ export const fetchAllInvoices = createAsyncThunk(
   }
 )
 
+export const deleteInvoice = createAsyncThunk(
+  "invoice/deleteInvoice",
+  async ({id, token}:{id:string, token:string})=>{
+    return axios.delete(`${api_url}/invoice/${id}`,{
+      headers:{
+        'Authorization': `Bearer ${token}`
+      }
+    }
+      
+    )
+  }
+)
+
 export const updatePost = createAsyncThunk(
   "invoice/updatePost",
   async ({newPost, token}: {newPost:InvoiceInterface, token:string})=>{
@@ -127,7 +140,6 @@ export const invoicesSlice = createSlice({
     .addCase(fetchSingleInvoice.pending, (state, { payload }) =>{
       state.loading = true;
     })
-
     .addCase(fetchSingleInvoice.fulfilled, (state, { payload }) =>{
       state.loading = false;
       state.invoice = payload;
@@ -148,6 +160,20 @@ export const invoicesSlice = createSlice({
       state.invoice = payload;
     })
     .addCase(updatePost.rejected, (state, { payload }) =>{
+      state.loading = false;
+      if(typeof payload==="string"){
+        state.error = payload;
+      }
+    })
+
+    .addCase(deleteInvoice.pending, (state, { payload }) =>{
+      state.loading = true;
+    })
+    .addCase(deleteInvoice.fulfilled, (state, { payload }) =>{
+      state.loading = false;
+      state.invoice = null
+    })
+    .addCase(deleteInvoice.rejected, (state, { payload }) =>{
       state.loading = false;
       if(typeof payload==="string"){
         state.error = payload;

@@ -1,14 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { StoresInterface } from '../@types/store'
+import { useNavigate } from 'react-router-dom'
 import StatusInfo from './StatusInfo'
 import Button1 from './Button1'
 import './styles/detailsHeader.css'
-
+import { useAppDispatch } from "../store/hooks";
+import {  deleteInvoice } from "../slice/invoices.slice"
 
 const DetailsHeader = ({toggleDisplay}:{toggleDisplay:()=>void}) => {
     const {invoice} = useSelector( (state:StoresInterface)=>state.invoices )
-    const {theme} = useSelector( (state:StoresInterface)=>state.auth )
+    const {theme, token} = useSelector( (state:StoresInterface)=>state.auth )
+    const dispatch = useAppDispatch()
+    const navigate = useNavigate()
+
+    const handleDelete = () =>{
+      if(invoice && invoice.id && token){
+        dispatch(deleteInvoice({id:invoice.id.toString(), token}))
+      }
+    }
+
+    useEffect(()=>{
+      if(!invoice){
+        navigate("/")
+      }
+    },[invoice])
 
   return (
     <div className={ theme ? "DetailsHeader colorBgWhite" : "DetailsHeader colorBg3" }>
@@ -18,7 +34,7 @@ const DetailsHeader = ({toggleDisplay}:{toggleDisplay:()=>void}) => {
         </div>
         <div className="right">
             <Button1 type={0} onClick={()=>toggleDisplay()}>Edit</Button1>
-            <Button1 type={1}>Delete</Button1>
+            <Button1 type={1} onClick={()=>handleDelete()}>Delete</Button1>
             <Button1 type={0}>Mark as Paid</Button1>
         </div>
     </div>
