@@ -36,23 +36,22 @@ export const fetchAllInvoices = createAsyncThunk(
   }
 )
 
+// id : number ? => axios
 export const deleteInvoice = createAsyncThunk(
   "invoice/deleteInvoice",
-  async ({id, token}:{id:string, token:string})=>{
+  async ({id, token}:{id:number, token:string})=>{
     return axios.delete(`${api_url}/invoice/${id}`,{
       headers:{
         'Authorization': `Bearer ${token}`
       }
-    }
-      
-    )
+    })
   }
 )
 
-export const updatePost = createAsyncThunk(
+export const updateInvoice = createAsyncThunk(
   "invoice/updatePost",
-  async ({newPost, token}: {newPost:InvoiceInterface, token:string})=>{
-    const buff:InvoiceToUpdateInterface = newPost
+  async ({newInvoice, token}: {newInvoice:InvoiceInterface, token:string})=>{
+    const buff:InvoiceToUpdateInterface = newInvoice
     const id = buff['id']
     delete buff['id']
     delete buff['user_id']
@@ -151,15 +150,14 @@ export const invoicesSlice = createSlice({
       }
     })
 
-    .addCase(updatePost.pending, (state, { payload }) =>{
+    .addCase(updateInvoice.pending, (state, { payload }) =>{
       state.loading = true;
     })
-
-    .addCase(updatePost.fulfilled, (state, { payload }) =>{
+    .addCase(updateInvoice.fulfilled, (state, { payload }) =>{
       state.loading = false;
       state.invoice = payload;
     })
-    .addCase(updatePost.rejected, (state, { payload }) =>{
+    .addCase(updateInvoice.rejected, (state, { payload }) =>{
       state.loading = false;
       if(typeof payload==="string"){
         state.error = payload;

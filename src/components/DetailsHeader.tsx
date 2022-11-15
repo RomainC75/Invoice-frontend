@@ -6,7 +6,7 @@ import StatusInfo from './StatusInfo'
 import Button1 from './Button1'
 import './styles/detailsHeader.css'
 import { useAppDispatch } from "../store/hooks";
-import {  deleteInvoice } from "../slice/invoices.slice"
+import {  deleteInvoice, updateInvoice } from "../slice/invoices.slice"
 
 const DetailsHeader = ({toggleDisplay}:{toggleDisplay:()=>void}) => {
     const {invoice} = useSelector( (state:StoresInterface)=>state.invoices )
@@ -16,7 +16,15 @@ const DetailsHeader = ({toggleDisplay}:{toggleDisplay:()=>void}) => {
 
     const handleDelete = () =>{
       if(invoice && invoice.id && token){
-        dispatch(deleteInvoice({id:invoice.id.toString(), token}))
+        dispatch(deleteInvoice({id:invoice.id, token}))
+      }
+    }
+
+    const handleMarkAsPaid = () =>{
+      if(invoice && token){
+        const buff = {...invoice }
+        buff.status="paid"
+        dispatch(updateInvoice({newInvoice: buff, token:token}))
       }
     }
 
@@ -35,7 +43,7 @@ const DetailsHeader = ({toggleDisplay}:{toggleDisplay:()=>void}) => {
         <div className="right">
             <Button1 type={0} onClick={()=>toggleDisplay()}>Edit</Button1>
             <Button1 type={1} onClick={()=>handleDelete()}>Delete</Button1>
-            <Button1 type={0}>Mark as Paid</Button1>
+            <Button1 type={0} onClick={()=>handleMarkAsPaid()}>Mark as Paid</Button1>
         </div>
     </div>
   )

@@ -16,7 +16,6 @@ import DetailsContent from '../components/DetailsContent';
 const DetailsPage = () => {
     const dispatch = useAppDispatch()
     const {id} = useParams()
-    // const {invoice} = useSelector((state:StoresInterface)=>state.invoices)
     const {token} = useSelector((state:StoresInterface)=>state.auth)
     const [displayEdit, setDisplayEdit] = useState(false)
      useEffect(()=>{

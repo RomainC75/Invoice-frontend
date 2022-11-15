@@ -12,7 +12,7 @@ import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
 import TextField from "@mui/material/TextField";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { fetchAllInvoices, updatePost } from "../slice/invoices.slice";
+import { fetchAllInvoices, updateInvoice } from "../slice/invoices.slice";
 import "./styles/edit.css";
 import TextInput from "./TextInput";
 import SelectComp from "./SelectComp";
@@ -43,8 +43,8 @@ const Edit = ({ display, toggleDisplay }: EditInterface) => {
     if(!invoiceState || !token){
       return
     }
-    dispatch(updatePost({
-      newPost: invoiceState, 
+    dispatch(updateInvoice({
+      newInvoice: invoiceState, 
       token}))
   }
 
