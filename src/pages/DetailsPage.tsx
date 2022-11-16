@@ -18,6 +18,7 @@ const DetailsPage = () => {
     const {id} = useParams()
     const {token} = useSelector((state:StoresInterface)=>state.auth)
     const [displayEdit, setDisplayEdit] = useState(false)
+
      useEffect(()=>{
         if(id && token){
             dispatch(fetchSingleInvoice({id, token}))

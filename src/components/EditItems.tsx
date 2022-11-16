@@ -72,7 +72,7 @@ const EditItems = ({ invoiceState, setInvoiceState }: EditItemsInterface) => {
           <div className="title">Item Name</div>
           <ul className="name">
             {invoiceState.items.map((item, i) => (
-              <TextInput key={`name-${item.id}`} value={item.name} onChange={(el)=>handleItemChanges(el,i,"name")}></TextInput>
+              <TextInput key={`name-${i}`} value={item.name} onChange={(el)=>handleItemChanges(el,i,"name")}></TextInput>
             ))}
           </ul>
         </div>
@@ -81,7 +81,7 @@ const EditItems = ({ invoiceState, setInvoiceState }: EditItemsInterface) => {
           <div className="title">Qty.</div>
           <ul className="name">
             {invoiceState.items.map((item, i) => (
-              <TextInput key={`quantity-${item.id}`} value={item.quantity.toString()} onChange={(el)=>handleItemChanges(el,i,"quantity")}></TextInput>
+              <TextInput key={`quantity-${i}`} value={item.quantity.toString()} onChange={(el)=>handleItemChanges(el,i,"quantity")}></TextInput>
             ))}
           </ul>
         </div>
@@ -90,7 +90,7 @@ const EditItems = ({ invoiceState, setInvoiceState }: EditItemsInterface) => {
           <div className="title">Price</div>
           <ul className="name">
             {invoiceState.items.map((item, i) => (
-              <TextInput key={`price-${item.id}`} value={item.price.toString()} onChange={(el)=>handleItemChanges(el,i,"price")}></TextInput>
+              <TextInput key={`price-${i}`} value={item.price.toString()} onChange={(el)=>handleItemChanges(el,i,"price")}></TextInput>
             ))}
           </ul>
         </div>
@@ -99,7 +99,7 @@ const EditItems = ({ invoiceState, setInvoiceState }: EditItemsInterface) => {
           <div className="title">Price</div>
           <ul className="name">
             {invoiceState.items.map((item, i) => (
-              <li><FaTrash className="trashItem" onClick={()=>handleDeleteItem(i)}/></li>
+              <li><FaTrash key={`trash-${i}`} className="trashItem" onClick={()=>handleDeleteItem(i)}/></li>
             ))}
           </ul>
         </div>

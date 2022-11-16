@@ -18,13 +18,16 @@ import TextInput from "./TextInput";
 import SelectComp from "./SelectComp";
 import EditItems from "./EditItems";
 import {useAppDispatch} from '../store/hooks'
+import {empty_invoice} from "../utils/empty"
+import { empty } from "rxjs";
 
 interface EditInterface {
   display: boolean;
   toggleDisplay: () => void;
+  newInvoice?:boolean
 }
 
-const Edit = ({ display, toggleDisplay }: EditInterface) => {
+const Edit = ({ display, toggleDisplay, newInvoice=false }: EditInterface) => {
   const { invoice } = useSelector((state: StoresInterface) => state.invoices);
   const { token } = useSelector((state: StoresInterface) => state.auth);
   const dispatch = useAppDispatch()
@@ -49,8 +52,12 @@ const Edit = ({ display, toggleDisplay }: EditInterface) => {
   }
 
   useEffect(() => {
-    setInvoiceState(invoice);
-    setValue(dayjs(invoice?.paymentDue + "T12:00:00"));
+    if(!newInvoice){
+      setInvoiceState(invoice);
+      setValue(dayjs(invoice?.paymentDue + "T12:00:00"));
+    }else {
+      setInvoiceState(empty_invoice)
+    }
   }, [invoice]);
 
   useEffect(() => {
