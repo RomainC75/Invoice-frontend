@@ -2,9 +2,9 @@ export type status = "draft"|"pending"|"paid"
 export type paymentTerms = 1|7|14|30
 
 export interface InvoiceInterface{
-    id:number,
-    user_id:number,
-    createdAt:string,
+    id?:number,
+    user_id?:number,
+    createdAt?:string,
     paymentDue:string,
     paymentTerms:paymentTerms,
     description:string,
@@ -15,6 +15,8 @@ export interface InvoiceInterface{
     clientAddress:AddressInterface,
     senderAddress:AddressInterface,
 }
+
+
 
 export interface InvoiceToUpdateInterface{
     id?:number,
@@ -50,7 +52,7 @@ export interface UserInterface{
 
 export interface AddressInterface{
     id?:number,
-    name:string,
+    name?:string,
     street:string,
     city:string,
     postCode:string,

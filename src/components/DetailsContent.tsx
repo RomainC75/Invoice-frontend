@@ -36,7 +36,7 @@ const DetailsContent = () => {
               <div className="dates">
                 <div className="invoiceDate simpleDisplay">
                   <DetailTitle>Invoice Date</DetailTitle>
-                  <P05Content>{displayDate(invoice.createdAt)}</P05Content>
+                  <P05Content>{invoice.createdAt ? displayDate(invoice.createdAt): "xxx"}</P05Content>
                 </div>
                 <div className="payementDate simpleDisplay">
                   <DetailTitle>Payment Due</DetailTitle>
