@@ -12,7 +12,7 @@ import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
 import TextField from "@mui/material/TextField";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { fetchAllInvoices, updateInvoice } from "../slice/invoices.slice";
+import { fetchAllInvoices, postInvoice, updateInvoice } from "../slice/invoices.slice";
 import "./styles/edit.css";
 import TextInput from "./TextInput";
 import SelectComp from "./SelectComp";
@@ -56,9 +56,13 @@ const Edit = ({ display, toggleDisplay, newInvoice=false }: EditInterface) => {
     if(!invoiceState || !token){
       return
     }
-    dispatch(updateInvoice({
-      newInvoice: invoiceState, 
-      token}))
+    if(!newInvoice){
+      dispatch(updateInvoice({
+        newInvoice: invoiceState, 
+        token}))
+    }else{
+      dispatch(postInvoice({invoice:invoiceState, token}))
+    }
   }
 
   
@@ -207,7 +211,7 @@ const Edit = ({ display, toggleDisplay, newInvoice=false }: EditInterface) => {
 
         <div className="buttonsLine">
           <Button1 onClick={() => toggleDisplay()}>Cancel</Button1>
-          <Button1 onClick={()=> handleSaveChanges()}>Save Changes</Button1>
+          <Button1 onClick={()=> handleSaveChanges()}>{newInvoice ? "Save & S end" : "Save Changes"}</Button1>
         </div>
       </div>
     );

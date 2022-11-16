@@ -48,6 +48,19 @@ export const deleteInvoice = createAsyncThunk(
   }
 )
 
+export const postInvoice = createAsyncThunk(
+  "invoice/postInvoice",
+  async ({invoice, token}:{invoice:InvoiceInterface, token:string })=>{
+    return axios.post(`${api_url}/invoice/`,
+      invoice
+      ,{
+      headers:{
+        'Authorization': `Bearer ${token}`
+      }
+    }).then(ans=>ans.data)
+  }
+)
+
 export const updateInvoice = createAsyncThunk(
   "invoice/updatePost",
   async ({newInvoice, token}: {newInvoice:InvoiceInterface, token:string})=>{
@@ -172,6 +185,20 @@ export const invoicesSlice = createSlice({
       state.invoice = null
     })
     .addCase(deleteInvoice.rejected, (state, { payload }) =>{
+      state.loading = false;
+      if(typeof payload==="string"){
+        state.error = payload;
+      }
+    })
+
+    .addCase(postInvoice.pending, (state, { payload }) =>{
+      state.loading = true;
+    })
+    .addCase(postInvoice.fulfilled, (state, { payload }) =>{
+      state.loading = false;
+      state.invoice = null
+    })
+    .addCase(postInvoice.rejected, (state, { payload }) =>{
       state.loading = false;
       if(typeof payload==="string"){
         state.error = payload;
