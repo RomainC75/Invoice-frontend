@@ -19,7 +19,6 @@ import SelectComp from "./SelectComp";
 import EditItems from "./EditItems";
 import {useAppDispatch} from '../store/hooks'
 import {empty_invoice} from "../utils/empty"
-import { empty } from "rxjs";
 
 interface EditInterface {
   display: boolean;
@@ -34,10 +33,21 @@ const Edit = ({ display, toggleDisplay, newInvoice=false }: EditInterface) => {
   const [invoiceState, setInvoiceState] = useState<InvoiceInterface | null>(
     null
   );
-
   const [value, setValue] = React.useState<Dayjs | null>(
     dayjs("2014-08-18T21:11:54")
   );
+
+  useEffect(() => {
+    console.log("paymentDue : ", invoice?.paymentDue)
+    if(!newInvoice){
+      setInvoiceState(invoice);
+      setValue(dayjs(invoice?.paymentDue + "T12:00:00"));
+    }else {
+      setInvoiceState(empty_invoice)
+      setValue(dayjs(empty_invoice?.paymentDue + "T12:00:00"));
+    }
+  }, [invoice]);
+  
   const handleDateChange = (newValue: Dayjs | null) => {
     setValue(newValue);
   };
@@ -51,24 +61,7 @@ const Edit = ({ display, toggleDisplay, newInvoice=false }: EditInterface) => {
       token}))
   }
 
-  useEffect(() => {
-    if(!newInvoice){
-      setInvoiceState(invoice);
-      setValue(dayjs(invoice?.paymentDue + "T12:00:00"));
-    }else {
-      setInvoiceState(empty_invoice)
-    }
-  }, [invoice]);
-
-  useEffect(() => {
-    const newDate: string | undefined = value?.format("YYYY-MM-DD");
-    if (invoiceState && newDate) {
-      setInvoiceState({
-        ...invoiceState,
-        paymentDue: newDate,
-      });
-    }
-  }, [value]);
+  
 
   const handleChange = (
     el: React.ChangeEvent<HTMLInputElement>,
