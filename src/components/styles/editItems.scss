@@ -9,13 +9,10 @@
                 display:flex;
                 flex-direction:column;
                 justify-content: space-between;
-                
             }
             &.trash{
                 align-items:stretch;
-                
                 & > .name{
-                    
                     padding: 0;
                     & li{
                         list-style-type: none;

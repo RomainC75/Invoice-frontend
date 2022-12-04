@@ -195,6 +195,7 @@ export const invoicesSlice = createSlice({
       state.loading = true;
     })
     .addCase(postInvoice.fulfilled, (state, { payload }) =>{
+      // ==> reload fetchFullInvoices
       state.loading = false;
       state.invoice = null
     })
