@@ -15,11 +15,13 @@ const InvoiceListElement = ({invoice}:InvoiceListElementInterface):JSX.Element =
     const {theme} = useSelector((state:StoresInterface)=>state.auth)
   return (
     <Link to={`/invoice/${invoice.id}`}>
-        <li className={theme ? "InvoiceListElement colorBgWhite" : "InvoiceListElement colorBg3"}>     
-            <div className={theme ? "id black" : "id white"}><span className="sharp color7">#</span>{invoice.id}</div>
-            <div className="name">{invoice.clientName}</div>
-            <p className={theme ? "dueDate color7": "dueDate color5"}>Due {invoice.paymentDue}</p>
-            <p className={theme ? "total black" : "total white"}>€ 1800.43</p>
+        <li className={theme ? "InvoiceListElement colorBgWhite" : "InvoiceListElement colorBg3"}> 
+            <div className="sub">
+              <div className={theme ? "id black" : "id white"}><span className="sharp color7">#</span>{invoice.id}</div>
+              <p className={theme ? "dueDate color7": "dueDate color5"}>Due {invoice.paymentDue}</p>
+              <div className="name">{invoice.clientName}</div>
+              <p className={theme ? "total black" : "total white"}>€ 1800.43</p>
+            </div>    
             <StatusInfo status={invoice.status}/>
             <GoChevronRight className="chevron color1"/>
         </li>

@@ -91,4 +91,64 @@
   height: 40px;
   border-radius: 100%;
 }
+
+@media (max-width: 768px) {
+  .Navbar {
+    position: static;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    height: 80px;
+    width: 100%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .Navbar > .mainButton {
+    width: 80px;
+    height: 80px;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+  }
+  .Navbar > .mainButton > img {
+    width: 31px;
+    height: 31px;
+  }
+  .Navbar > .info {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .Navbar > .info > .shadowBox {
+    width: 80px;
+    height: 80px;
+  }
+  .Navbar > .info > .avatar {
+    border-left: 1px solid #979797;
+    border-top: none;
+  }
+  .Navbar > .info > .avatar > img {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 390px) {
+  .Navbar {
+    height: 72px;
+  }
+  .Navbar > .mainButton {
+    width: 72px;
+    height: 72px;
+  }
+  .Navbar > .mainButton > img {
+    width: 28px;
+    height: 28px;
+  }
+  .Navbar > .info > .shadowBox {
+    width: 72px;
+    height: 72px;
+  }
+}
 /*# sourceMappingURL=navbar.css.map */

@@ -62,3 +62,59 @@
     }
 
 }
+
+@media(max-width:768px){
+    .Navbar{
+        position:static;
+        flex-direction:row;
+        height:80px;
+        width:100%;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        & > .mainButton{
+            width:80px;
+            height:80px;
+            border-top-right-radius: 1em;
+            border-bottom-right-radius: 1em;
+            & > img{
+                width:31px;
+                height:31px;
+            }
+        }
+        & > .info{
+            flex-direction:row;
+            & > .shadowBox{
+                width:80px;
+                height:80px;
+            }
+            &> .avatar{
+                border-left: 1px solid #979797;
+                border-top:none;
+                & > img{
+                    width:32px;
+                    height:32px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:390px) {
+    .Navbar{
+        height:72px;
+        & > .mainButton{
+            width:72px;
+            height:72px;
+            & > img{
+                width:28px;
+                height:28px;
+            }
+        }
+        & > .info{
+            & > .shadowBox{
+                width:72px;
+                height:72px;
+            }
+        }
+    }
+}

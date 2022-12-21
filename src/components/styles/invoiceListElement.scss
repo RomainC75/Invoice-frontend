@@ -2,9 +2,17 @@
     list-style-type: none;
     display:flex;
     justify-content: space-between;
+    align-items: center;
     padding: 29px 24px;
     border-radius:2em;
     margin-bottom:10px;
+    & .sub{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-grow:2;
+        margin-right:40px;
+    }
     & > .id{
 
     }
