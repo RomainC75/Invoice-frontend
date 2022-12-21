@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { InvoiceInterface} from  "../@types/invoice"
 import FilterByStatus from "./FilterByStatus";
 import Button1 from "./Button1"
@@ -12,15 +12,26 @@ interface HomeHeaderInterface{
   invoices:InvoiceInterface[] | null
 }
 
+
 const HomeHeader = ({invoices}:HomeHeaderInterface):JSX.Element => {
   const {theme} = useSelector( (state:StoresInterface)=>state.auth )
   const invoicesNb = invoices ? invoices.length : 0
   const [displayEdit, setDisplayEdit] = useState(false)
+  const [widthState, setWidthState] = useState<number | null>(null)
 
   const toggleDisplay = () =>{
     console.log("TOOGLE")
     setDisplayEdit(!displayEdit)
   }
+
+  useEffect(() => {
+    setWidthState(window.innerWidth)
+  }, [])
+  
+
+  window.addEventListener('resize',()=>{
+    setWidthState(window.innerWidth)
+  })
   
   return (
     <div className="HomeHeader">
@@ -32,7 +43,7 @@ const HomeHeader = ({invoices}:HomeHeaderInterface):JSX.Element => {
       </div>
       <div className="right">
         <FilterByStatus/>
-        <Button1 type={0} cross onClick={()=>setDisplayEdit(true)}>New Invoice</Button1>
+        <Button1 type={0} cross onClick={()=>setDisplayEdit(true)}>{widthState && widthState > 500 ? "New Invoice" : "New"}</Button1>
       </div> 
     </div>
   );

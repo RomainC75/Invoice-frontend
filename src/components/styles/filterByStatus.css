@@ -33,4 +33,10 @@
   text-align: left;
   border-radius: 0.5em;
 }
+
+@media (max-width: 400px) {
+  .FilterByStatus {
+    margin-right: 18px;
+  }
+}
 /*# sourceMappingURL=filterByStatus.css.map */

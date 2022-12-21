@@ -24,16 +24,19 @@ const FilterByStatus = ():JSX.Element => {
     setVisibility(!visibility)
   }
 
+
   useEffect(()=>{
     const visiClass = visibility ? "visible" : ""
     const themeClass = theme ? "black colorBgWhite shadowWhite " : "white colorBg3 shadowBlack "
     setDropDownClassState("dropDown "+themeClass+visiClass)
   },[visibility, theme])
 
+
   return (
     <div className="FilterByStatus">
       <div className="text" onClick={()=>toggleVisibility()}>
-        <p className={theme ? "black" : "white"}>Filter by status</p>
+        <p className={theme ? "black wide" : "white wide"}>Filter by status</p>
+        <p className={theme ? "black small" : "white small"}>Filter</p>
         <div className="color1">
           <GoChevronDown className={visibility ? " chevron rotate" : "chevron"}/>
         </div>
