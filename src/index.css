@@ -196,6 +196,53 @@ h4{
   visibility: visible!important;
 }
 
+.shadowWhite{
+  box-shadow: 0px 0px 10px rgb(197, 197, 197);
+}
+
+.shadowBlack{
+  box-shadow: 0px 0px 10px rgb(26, 26, 26);
+}
+
 .rotate{
   transform:rotate(180deg);
 }
+
+
+/* wide */
+/* .wide{
+  display:block;
+}
+.middle{
+  display:none;
+}
+.small{
+  display: none;
+}
+
+
+@media(max-width:768px){
+  .wide{
+    display:none;
+  }
+  .middle{
+    display:block;
+  }
+  .small{
+    display: none;
+  }
+}
+
+
+/* smarphone */
+/* @media(max-width:490px){
+  .wide{
+    display:none
+  }
+  .middle{
+    display:none;
+  }
+  .small{
+    display: block;
+  }
+}  */

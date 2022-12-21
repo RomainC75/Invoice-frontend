@@ -1,17 +1,40 @@
 .HomeHeader{
     display:flex;
     justify-content: space-between;
+    align-items: center;
     width:100%;
     margin:72px 0 65px 0;
     margin-top:0 !important;
-    // padding-top:74px;
+    //  padding-top:74px;
     & > .left{
         & > p{
-            
+            margin:0;
         }
+        & > h1{
+            margin:0 0 8px 0;
+        }
+        
     }
 
     & > .right{
         display:flex;
+    }
+    & h1 {
+        text-align: left;
+    }
+    & .small{
+        display:none;
+    }
+    
+}
+
+@media(max-width:390px){
+    .HomeHeader{
+        & .small{
+            display:inline;
+        }
+        & .wide{
+            display:none;
+        }
     }
 }

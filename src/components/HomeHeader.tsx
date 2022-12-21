@@ -3,6 +3,8 @@ import { InvoiceInterface} from  "../@types/invoice"
 import FilterByStatus from "./FilterByStatus";
 import Button1 from "./Button1"
 import Edit from "./Edit";
+import { useSelector } from 'react-redux'
+import { StoresInterface } from '../@types/store'
 
 import './styles/homeHeader.css'
 
@@ -11,6 +13,7 @@ interface HomeHeaderInterface{
 }
 
 const HomeHeader = ({invoices}:HomeHeaderInterface):JSX.Element => {
+  const {theme} = useSelector( (state:StoresInterface)=>state.auth )
   const invoicesNb = invoices ? invoices.length : 0
   const [displayEdit, setDisplayEdit] = useState(false)
 
@@ -23,8 +26,9 @@ const HomeHeader = ({invoices}:HomeHeaderInterface):JSX.Element => {
     <div className="HomeHeader">
       <Edit display={displayEdit} toggleDisplay={toggleDisplay} newInvoice/>
       <div className="left">
-        <h1>Invoices</h1>
-        <p className="color6">There is {invoicesNb} total invoices</p>
+        <h1 className={theme ? "black" : "white"}>Invoices</h1>
+        <p className="color6 wide">There is {invoicesNb} total invoices</p>
+        <p className="color6 small">{invoicesNb} invoices</p>
       </div>
       <div className="right">
         <FilterByStatus/>

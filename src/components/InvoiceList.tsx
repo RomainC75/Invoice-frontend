@@ -4,12 +4,14 @@ import { InvoiceInterface } from '../@types/invoice'
 import { StoresInterface } from '../@types/store'
 import InvoiceListElement from './InvoiceListElement'
 
+import './styles/invoiceList.css'
+
 const InvoiceList = ():JSX.Element => {
   const {invoices} = useSelector((state:StoresInterface)=>state.invoices)
 
   return (
     <div className="InvoiceList">
-        <ul>
+        <ul className="InvoiceList__list">
           {invoices && invoices.map((invoice, i)=> <InvoiceListElement key={i} invoice={invoice}/>)}
         </ul>
     </div>

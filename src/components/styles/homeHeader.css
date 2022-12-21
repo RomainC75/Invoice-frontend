@@ -5,14 +5,42 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
   margin: 72px 0 65px 0;
   margin-top: 0 !important;
+}
+
+.HomeHeader > .left > p {
+  margin: 0;
+}
+
+.HomeHeader > .left > h1 {
+  margin: 0 0 8px 0;
 }
 
 .HomeHeader > .right {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.HomeHeader h1 {
+  text-align: left;
+}
+
+.HomeHeader .small {
+  display: none;
+}
+
+@media (max-width: 390px) {
+  .HomeHeader .small {
+    display: inline;
+  }
+  .HomeHeader .wide {
+    display: none;
+  }
 }
 /*# sourceMappingURL=homeHeader.css.map */

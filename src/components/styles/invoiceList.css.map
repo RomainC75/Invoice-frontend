@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,YAAY,CAAA;EACR,MAAM,EAAE,MAAM;EACd,KAAK,EAAC,IAAI;CACb",
+    "mappings": "AAAA,AAAA,YAAY,CAAA;EACR,MAAM,EAAE,MAAM;EACd,KAAK,EAAC,IAAI;CAIb;;AAND,AAGI,YAHQ,GAGJ,EAAE,CAAA;EACF,OAAO,EAAE,GAAG;CACf",
     "sources": [
         "invoiceList.scss"
     ],
