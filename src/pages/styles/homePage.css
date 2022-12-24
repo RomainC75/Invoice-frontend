@@ -2,4 +2,16 @@
   max-width: 730px;
   margin: 0 auto;
 }
+
+@media (max-width: 768px) {
+  .HomePage {
+    margin: 56px 45px;
+  }
+}
+
+@media (max-width: 400px) {
+  .HomePage {
+    margin: 32px 24px;
+  }
+}
 /*# sourceMappingURL=homePage.css.map */
