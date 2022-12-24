@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,qBAAqB,CAAA;EACjB,OAAO,EAAC,IAAI;EACZ,GAAG,EAAC,IAAI;CAKX;;AAPD,AAGI,qBAHiB,AAGhB,WAAW,CAAA;EACR,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;CAC1B;;AAIL,MAAM,EAAC,SAAS,EAAE,KAAK;EACnB,AACI,qBADiB,AAChB,WAAW,CAAA;IACR,OAAO,EAAC,IAAI;GACf;EAHL,AAII,qBAJiB,AAIhB,KAAK,CAAA;IACF,OAAO,EAAC,IAAI;GACf",
+    "sources": [
+        "detailsHeaderButtons.scss"
+    ],
+    "names": [],
+    "file": "detailsHeaderButtons.css"
+}

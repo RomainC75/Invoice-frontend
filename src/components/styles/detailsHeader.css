@@ -38,8 +38,5 @@
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
-  .DetailsHeader > .right {
-    display: none;
-  }
 }
 /*# sourceMappingURL=detailsHeader.css.map */

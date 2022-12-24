@@ -20,12 +20,11 @@
 
 @media (max-width:600px){
     .DetailsHeader{
+
         & > .left{
             width:100%;
             justify-content: space-between;
         }
-        & > .right{
-            display:none;
-        }
+        
     }
 }

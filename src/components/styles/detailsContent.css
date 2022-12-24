@@ -62,4 +62,19 @@
       -ms-flex-pack: center;
           justify-content: center;
 }
+
+@media (max-width: 400px) {
+  .DetailsContent > .top {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .DetailsContent > .top > .senderAddress {
+    text-align: left;
+  }
+}
 /*# sourceMappingURL=detailsContent.css.map */

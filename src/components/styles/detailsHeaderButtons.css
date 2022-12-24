@@ -1,0 +1,25 @@
+.DetailsHeaderButtons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+}
+
+.DetailsHeaderButtons.smartphone {
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .DetailsHeaderButtons.smartphone {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .DetailsHeaderButtons.wide {
+    display: none;
+  }
+}
+/*# sourceMappingURL=detailsHeaderButtons.css.map */

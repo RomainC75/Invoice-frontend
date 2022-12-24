@@ -213,6 +213,7 @@ const Edit = ({ display, toggleDisplay, newInvoice=false }: EditInterface) => {
           <Button1 onClick={() => toggleDisplay()}>Cancel</Button1>
           <Button1 onClick={()=> handleSaveChanges()}>{newInvoice ? "Save & S end" : "Save Changes"}</Button1>
         </div>
+        {/* <EditButtons toogleDisplay={toggleDisplay} handleSaveChanges={handleSaveChanges}/> */}
       </div>
     );
   }

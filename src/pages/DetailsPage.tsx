@@ -12,6 +12,7 @@ import Edit from '../components/Edit';
 import './styles/detailsPage.css'
 import DetailsHeader from '../components/DetailsHeader';
 import DetailsContent from '../components/DetailsContent';
+import { DetailsHeaderButtons } from '../components/DetailsHeaderButtons';
 
 
 const DetailsPage = () => {
@@ -32,16 +33,22 @@ const DetailsPage = () => {
     }
       
   return (
-    <div className="DetailsPage">
-        <Edit display={displayEdit} toggleDisplay={toggleDisplay}/>
-        <div className={displayEdit ? "halo" : "halo hide"}></div>
-        <Link to='/' className="navigation">
-            <GoChevronLeft className="chevron color1  "/>
-            <p className = { theme ? "black" : "white" }>Go back</p>
-        </Link>
-        <DetailsHeader toggleDisplay={toggleDisplay}/>
-        <DetailsContent/>
-    </div>
+    <>
+        <div className="DetailsPage">
+            <Edit display={displayEdit} toggleDisplay={toggleDisplay}/>
+            <div className={displayEdit ? "halo" : "halo hide"}></div>
+            <Link to='/' className="navigation">
+                <GoChevronLeft className="chevron color1  "/>
+                <p className = { theme ? "black" : "white" }>Go back</p>
+            </Link>
+            <DetailsHeader toggleDisplay={toggleDisplay}/>
+            <DetailsContent/>
+        </div>
+        <div>
+            {displayEdit ? <p>edit</p> : <DetailsHeaderButtons isForSmartphone toggleDisplay={toggleDisplay}/> }
+        </div>
+        
+    </>
   )
 }
 
