@@ -7,6 +7,7 @@
     margin-top:32px;
     & > .left{
         display:flex;
+        align-items: center;
         & > p:nth-child(1){
             margin-right:16px;
         }
@@ -14,5 +15,17 @@
     & > .right{
         display:flex;
         gap:10px;
+    }
+}
+
+@media (max-width:600px){
+    .DetailsHeader{
+        & > .left{
+            width:100%;
+            justify-content: space-between;
+        }
+        & > .right{
+            display:none;
+        }
     }
 }

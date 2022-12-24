@@ -15,6 +15,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .DetailsHeader > .left > p:nth-child(1) {
@@ -26,5 +29,17 @@
   display: -ms-flexbox;
   display: flex;
   gap: 10px;
+}
+
+@media (max-width: 600px) {
+  .DetailsHeader > .left {
+    width: 100%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .DetailsHeader > .right {
+    display: none;
+  }
 }
 /*# sourceMappingURL=detailsHeader.css.map */
