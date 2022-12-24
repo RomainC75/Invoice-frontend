@@ -44,7 +44,7 @@ const DetailsPage = () => {
             <DetailsHeader toggleDisplay={toggleDisplay}/>
             <DetailsContent/>
         </div>
-        <div>
+        <div className={theme ? "DetailsPage__smartphonePart colorBgWhite" : "DetailsPage__smartphonePart colorBg4"}>
             {displayEdit ? <p>edit</p> : <DetailsHeaderButtons isForSmartphone toggleDisplay={toggleDisplay}/> }
         </div>
         
