@@ -47,6 +47,10 @@
   margin-bottom: 8px;
 }
 
+.DetailsContent > .middle > .left > .bill > .clientAddress > p {
+  margin: 0;
+}
+
 .DetailsContent > .middle > .sent {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;

@@ -4,7 +4,7 @@ import { useAppDispatch } from "../store/hooks";
 import { useParams } from 'react-router-dom';
 import { StoresInterface } from '../@types/store';
 import { fetchSingleInvoice } from '../slice/invoices.slice';
-import { GoArrowLeft, GoChevronLeft } from 'react-icons/go';
+import { GoChevronLeft } from 'react-icons/go';
 import { Link } from 'react-router-dom';
 import Edit from '../components/Edit';
 
@@ -13,10 +13,11 @@ import './styles/detailsPage.css'
 import DetailsHeader from '../components/DetailsHeader';
 import DetailsContent from '../components/DetailsContent';
 
+
 const DetailsPage = () => {
     const dispatch = useAppDispatch()
     const {id} = useParams()
-    const {token} = useSelector((state:StoresInterface)=>state.auth)
+    const {token, theme} = useSelector((state:StoresInterface)=>state.auth)
     const [displayEdit, setDisplayEdit] = useState(false)
 
      useEffect(()=>{
@@ -36,7 +37,7 @@ const DetailsPage = () => {
         <div className={displayEdit ? "halo" : "halo hide"}></div>
         <Link to='/' className="navigation">
             <GoChevronLeft className="chevron color1  "/>
-            <p>Go back</p>
+            <p className = { theme ? "black" : "white" }>Go back</p>
         </Link>
         <DetailsHeader toggleDisplay={toggleDisplay}/>
         <DetailsContent/>

@@ -33,4 +33,16 @@
 .DetailsPage > .halo.hide {
   display: none;
 }
+
+@media (max-width: 768px) {
+  .DetailsPage {
+    margin: 56px 45px;
+  }
+}
+
+@media (max-width: 400px) {
+  .DetailsPage {
+    margin: 32px 24px;
+  }
+}
 /*# sourceMappingURL=detailsPage.css.map */
