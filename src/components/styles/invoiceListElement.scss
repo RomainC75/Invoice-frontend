@@ -1,4 +1,7 @@
 .InvoiceListElement{
+    &.smartphone{
+        display:none;
+    }
     list-style-type: none;
     display:flex;
     justify-content: space-between;
@@ -18,5 +21,38 @@
     }
     .chevron{
         
+    }
+}
+
+@media (max-width:530px){
+    .InvoiceListElement{
+        padding:24px;
+        &.wide{
+            display:none;
+        }
+        &.smartphone{
+            display:flex;
+            & .sub{
+                margin:0;
+                flex-direction:column;
+                justify-content: space-between;
+                &__top{
+                    margin-bottom:24px;
+                }
+                &__top, &__bottom{
+                    display:flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width:100%;
+                }
+                & .id, &__bottom{
+                    text-align: left;
+                    & p{
+                        margin-bottom:8px;
+                    }
+                }
+            }
+        }
+
     }
 }

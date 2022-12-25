@@ -14,6 +14,10 @@
   margin-bottom: 10px;
 }
 
+.InvoiceListElement.smartphone {
+  display: none;
+}
+
 .InvoiceListElement .sub {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -28,5 +32,50 @@
       -ms-flex-positive: 2;
           flex-grow: 2;
   margin-right: 40px;
+}
+
+@media (max-width: 530px) {
+  .InvoiceListElement {
+    padding: 24px;
+  }
+  .InvoiceListElement.wide {
+    display: none;
+  }
+  .InvoiceListElement.smartphone {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .InvoiceListElement.smartphone .sub {
+    margin: 0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .InvoiceListElement.smartphone .sub__top {
+    margin-bottom: 24px;
+  }
+  .InvoiceListElement.smartphone .sub__top, .InvoiceListElement.smartphone .sub__bottom {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+  }
+  .InvoiceListElement.smartphone .sub .id, .InvoiceListElement.smartphone .sub__bottom {
+    text-align: left;
+  }
+  .InvoiceListElement.smartphone .sub .id p, .InvoiceListElement.smartphone .sub__bottom p {
+    margin-bottom: 8px;
+  }
 }
 /*# sourceMappingURL=invoiceListElement.css.map */
