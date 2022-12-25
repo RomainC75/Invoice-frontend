@@ -63,7 +63,7 @@
           justify-content: center;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .DetailsContent > .top {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -73,8 +73,24 @@
         -ms-flex-align: start;
             align-items: flex-start;
   }
-  .DetailsContent > .top > .senderAddress {
+  .DetailsContent > .top > .idDescription {
+    margin-bottom: 30px;
     text-align: left;
+  }
+  .DetailsContent > .top > .senderAddress > p {
+    text-align: left;
+  }
+  .DetailsContent > .middle {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .DetailsContent > .middle > .left > div {
+    width: 49%;
+  }
+  .DetailsContent > .middle > .sent {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
   }
 }
 /*# sourceMappingURL=detailsContent.css.map */

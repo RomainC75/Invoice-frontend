@@ -42,13 +42,30 @@
     }
 }
 
-@media (max-width:400px){
+@media (max-width:450px){
     .DetailsContent{
         & > .top{
             flex-direction: column;
             align-items: flex-start;
-            & > .senderAddress{
+            & > .idDescription{
+                margin-bottom: 30px;
                 text-align: left;
+            }
+            & > .senderAddress {
+                & > p{
+                    text-align: left;
+                }
+            }
+        }
+        & > .middle{
+            flex-wrap: wrap;
+            & > .left{
+                & > div{
+                    width:49%;
+                }
+            }
+            & > .sent{
+                justify-content: flex-start;
             }
         }
     }
