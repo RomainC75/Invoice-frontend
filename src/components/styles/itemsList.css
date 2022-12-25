@@ -11,6 +11,10 @@
   margin-top: 45px;
 }
 
+.ItemsList > .details.smartphone {
+  display: none;
+}
+
 .ItemsList > .details > .column > div {
   margin-bottom: 32px;
 }
@@ -46,5 +50,31 @@
   font-size: 24px;
   line-height: 24px;
   letter-spacing: -0.5px;
+}
+
+@media (max-width: 400px) {
+  .ItemsList > .details.smartphone {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .ItemsList > .details.smartphone > .itemsLine {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .ItemsList > .details.smartphone > .itemsLine > .left {
+    text-align: left;
+  }
+  .ItemsList > .details.wide {
+    display: none;
+  }
 }
 /*# sourceMappingURL=itemsList.css.map */
