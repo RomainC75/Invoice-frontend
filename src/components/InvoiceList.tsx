@@ -7,12 +7,12 @@ import InvoiceListElement from './InvoiceListElement'
 import './styles/invoiceList.css'
 
 const InvoiceList = ():JSX.Element => {
-  const {invoices} = useSelector((state:StoresInterface)=>state.invoices)
+  const {invoices, filterByStatus} = useSelector((state:StoresInterface)=>state.invoices)
 
   return (
     <div className="InvoiceList">
         <ul className="InvoiceList__list">
-          {invoices && invoices.map((invoice, i)=> <InvoiceListElement key={i} invoice={invoice}/>)}
+          {invoices && invoices.filter(invoice=>filterByStatus.includes(invoice.status)).map((invoice, i)=> <InvoiceListElement key={i} invoice={invoice}/>)}
         </ul>
     </div>
   )
