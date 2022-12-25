@@ -64,6 +64,9 @@
 }
 
 @media (max-width: 450px) {
+  .DetailsContent {
+    padding: 24px;
+  }
   .DetailsContent > .top {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;

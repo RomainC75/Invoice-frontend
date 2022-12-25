@@ -1,63 +1,69 @@
 .ItemsList {
-  & > .details {
-    &.smartphone {
-      display: none;
+    & > .details {
+        &.smartphone {
+            display: none;
+        }
+        padding: 32px;
+        display: flex;
+        justify-content: space-between;
+        border-top-left-radius: 1em;
+        border-top-right-radius: 1em;
+        margin-top: 45px;
+        & > .column {
+            & > div {
+                margin-bottom: 32px;
+            }
+            &.name {
+                width: 40%;
+                text-align: left;
+            }
+            &.price,
+            &.subTotal {
+                text-align: right;
+            }
+        }
     }
-    padding: 32px;
-    display: flex;
-    justify-content: space-between;
-    border-top-left-radius: 1em;
-    border-top-right-radius: 1em;
-    margin-top: 45px;
-    & > .column {
-      & > div {
-        margin-bottom: 32px;
-      }
-      &.name {
-        width: 40%;
-        text-align: left;
-      }
-      &.price,
-      &.subTotal {
-        text-align: right;
-      }
+    & > .total {
+        height: 80px;
+        padding: 32px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        border-bottom-left-radius: 1em;
+        border-bottom-right-radius: 1em;
+        & > .totalNumber {
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 24px;
+            letter-spacing: -0.5px;
+        }
     }
-  }
-  & > .total {
-    height: 80px;
-    padding: 32px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    border-bottom-left-radius: 1em;
-    border-bottom-right-radius: 1em;
-    & > .totalNumber {
-      font-weight: bold;
-      font-size: 24px;
-      line-height: 24px;
-      letter-spacing: -0.5px;
-    }
-  }
 }
 
 @media (max-width: 400px) {
-  .ItemsList {
-    & > .details {
-      &.smartphone {
-        display: flex;
-        flex-direction: column;
-        & > .itemsLine {
-          display: flex;
-          justify-content: space-between;
-          & > .left {
-            text-align: left;
-          }
+    .ItemsList {
+        & > .details {
+            &.smartphone {
+                display: flex;
+                flex-direction: column;
+                & > .itemsLine {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items:center;
+                    margin-bottom:24px;
+                    & > .left {
+                        text-align: left;
+                    }
+                    & p{
+                        margin: 0 0 8px 0;
+                        font-weight:bold;
+                    }
+                }
+            }
+            &.wide {
+                display: none;
+            }
         }
-      }
-      &.wide {
-        display: none;
-      }
     }
-  }
 }
